@@ -5,4 +5,4 @@
 [ダウンロード](https://github.com/AdGeneration/VAMP-Android-SDK/releases)
 
 ## Documents
-[実装マニュアル 他](https://github.com/AdGeneration/VAMP-Android-SDK/wiki)
+[実装マニュアル 他](https://docs.sdk.vamp.ad-generation.jp/docs/android/)
