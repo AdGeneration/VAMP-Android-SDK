@@ -35,7 +35,7 @@ dependencies {
     // UnityAds
     implementation 'jp.supership.vamp:vamp-unityads-adapter:3.7.0.0'
     // Tapjoy
-    implementation 'jp.supership.vamp:vamp-tapjoy-adapter:12.8.0.0'
+    implementation 'jp.supership.vamp:vamp-tapjoy-adapter:12.8.0.1'
     // nend
     implementation 'jp.supership.vamp:vamp-nend-adapter:7.0.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
