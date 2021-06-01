@@ -3,13 +3,14 @@
   <groupId>jp.supership.vamp</groupId>
   <artifactId>vamp-unityads-adapter</artifactId>
   <versioning>
-    <release>3.7.0.0</release>
+    <release>3.7.1.0</release>
     <versions>
       <version>1.0.0</version>
       <version>3.4.8.0</version>
       <version>3.5.0.0</version>
       <version>3.7.0.0</version>
+      <version>3.7.1.0</version>
     </versions>
-    <lastUpdated>20210326014204</lastUpdated>
+    <lastUpdated>20210531085112</lastUpdated>
   </versioning>
 </metadata>
