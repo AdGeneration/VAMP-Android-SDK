@@ -34,10 +34,13 @@ allprojects {
             url "https://imobile-maio.github.io/maven"
         }
         maven {
-            url "https://maven.google.com"
+            url 'https://artifact.bytedance.com/repository/pangle'
         }
         maven {
             url 'https://AdGeneration.github.io/VAMP-Android-SDK/repository'
+        }
+        maven {
+            url "https://maven.google.com"
         }
     }
 }
