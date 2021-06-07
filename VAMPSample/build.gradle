@@ -25,9 +25,6 @@ allprojects {
             url "https://sdk.tapjoy.com/"
         }
         maven {
-            url "https://s3.amazonaws.com/moat-sdk-builds"
-        }
-        maven {
             url 'http://fan-adn.github.io/nendSDK-Android-lib/library'
         }
         maven{
