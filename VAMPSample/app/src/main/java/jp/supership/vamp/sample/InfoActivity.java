@@ -29,7 +29,6 @@ import com.google.android.gms.common.GooglePlayServicesRepairableException;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Locale;
 
@@ -72,6 +71,7 @@ public class InfoActivity extends AppCompatActivity {
     /**
      * 端末情報表示
      */
+    @SuppressWarnings({"MissingPermission"})
     private void initInfo() {
         StringBuffer info = new StringBuffer();
         addKeyValue(info, "サポート対象OS", String.valueOf(VAMP.isSupported()));
@@ -145,9 +145,7 @@ public class InfoActivity extends AppCompatActivity {
                 Method getRawHeight = Display.class.getMethod("getRawHeight");
                 width = (Integer) getRawWidth.invoke(display);
                 height = (Integer) getRawHeight.invoke(display);
-            } catch (NoSuchMethodException e) {
-            } catch (InvocationTargetException e) {
-            } catch (IllegalAccessException e) {
+            } catch (Exception ignored) {
             }
         }
         if (width == null || height == null) {
@@ -214,7 +212,7 @@ public class InfoActivity extends AppCompatActivity {
                 if (versionId != 0) {
                     try {
                         version = String.valueOf(getResources().getInteger(versionId));
-                    } catch (Exception e) {
+                    } catch (Exception ignored) {
                     }
                 }
                 break;
@@ -223,14 +221,14 @@ public class InfoActivity extends AppCompatActivity {
                     Class<?> cls = Class.forName("com.applovin.sdk.AppLovinSdk");
                     Field field = cls.getField("VERSION");
                     version = (String) field.get(null);
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
                 break;
             case "FAN":
                 try {
                     Class<?> cls = Class.forName("com.facebook.ads.BuildConfig");
                     version = (String) cls.getField("VERSION_NAME").get(null);
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
                 break;
             case "maio":
@@ -238,14 +236,14 @@ public class InfoActivity extends AppCompatActivity {
                     Class<?> cls = Class.forName("jp.maio.sdk.android.MaioAds");
                     Method getSdkVersion = cls.getMethod("getSdkVersion");
                     version = (String) getSdkVersion.invoke(null);
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
                 break;
             case "nend":
                 try {
                     Class<?> cls = Class.forName("net.nend.android.BuildConfig");
                     version = (String) cls.getField("NEND_SDK_VERSION").get(null);
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
                 break;
             case "Tapjoy":
@@ -253,7 +251,7 @@ public class InfoActivity extends AppCompatActivity {
                     Class<?> cls = Class.forName("com.tapjoy.Tapjoy");
                     Method getVersion = cls.getMethod("getVersion");
                     version = (String) getVersion.invoke(null);
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
                 break;
             case "UnityAds":
@@ -261,7 +259,7 @@ public class InfoActivity extends AppCompatActivity {
                     Class<?> cls = Class.forName("com.unity3d.ads.UnityAds");
                     Method getVersion = cls.getMethod("getVersion");
                     version = (String) getVersion.invoke(null);
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
                 break;
             case "LINEAds":
