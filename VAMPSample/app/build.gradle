@@ -21,6 +21,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -30,25 +34,21 @@ dependencies {
     implementation 'com.google.android.gms:play-services-base:17.6.0'
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.1'
     // VAMP
-    implementation 'jp.supership.vamp:vamp-sdk:4.3.0'
+    implementation 'jp.supership.vamp:vamp-sdk:4.4.0'
     // AdMob
-    implementation 'jp.supership.vamp:vamp-admob-adapter:20.3.0.0'
+    implementation 'jp.supership.vamp:vamp-admob-adapter:20.6.0.0'
     // UnityAds
-    implementation 'jp.supership.vamp:vamp-unityads-adapter:3.7.5.1'
+    implementation 'jp.supership.vamp:vamp-unityads-adapter:4.1.0.0'
     // Tapjoy
-    implementation 'jp.supership.vamp:vamp-tapjoy-adapter:12.8.1.2'
+    implementation 'jp.supership.vamp:vamp-tapjoy-adapter:12.9.1.0'
     // nend
-    implementation 'jp.supership.vamp:vamp-nend-adapter:7.1.0.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'jp.supership.vamp:vamp-nend-adapter:8.1.0.0'
     // FAN
-    implementation 'jp.supership.vamp:vamp-fan-adapter:6.6.0.0'
+    implementation 'jp.supership.vamp:vamp-fan-adapter:6.10.0.0'
     // maio
-    implementation 'jp.supership.vamp:vamp-maio-adapter:1.1.15.0'
-    // AppLovin
-    implementation 'jp.supership.vamp:vamp-applovin-adapter:10.3.2.0'
+    implementation 'jp.supership.vamp:vamp-maio-adapter:1.1.16.0'
     // LINEAds
-    implementation 'jp.supership.vamp:vamp-lineads-adapter:2.3.20210514.0'
+    implementation 'jp.supership.vamp:vamp-lineads-adapter:2.4.20220216.0'
     // Pangle
-    implementation 'jp.supership.vamp:vamp-pangle-adapter:3.9.0.3.0'
+    implementation 'jp.supership.vamp:vamp-pangle-adapter:4.3.0.6.0'
 }

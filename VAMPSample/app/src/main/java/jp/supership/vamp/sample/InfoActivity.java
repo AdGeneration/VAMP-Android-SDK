@@ -14,8 +14,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -23,12 +21,14 @@ import android.view.Display;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Locale;
 
@@ -71,7 +71,7 @@ public class InfoActivity extends AppCompatActivity {
     /**
      * 端末情報表示
      */
-    @SuppressWarnings({"MissingPermission"})
+    @SuppressWarnings({ "MissingPermission" })
     private void initInfo() {
         StringBuffer info = new StringBuffer();
         addKeyValue(info, "サポート対象OS", String.valueOf(VAMP.isSupported()));
@@ -82,7 +82,6 @@ public class InfoActivity extends AppCompatActivity {
         addValue(info, "--------------------");
         addKeyValue(info, "SDK_Ver(VAMP)", getVersion("VAMP"));
         addKeyValue(info, "SDK_Ver(Admob)", getVersion("Admob"));
-        addKeyValue(info, "SDK_Ver(AppLovin)", getVersion("AppLovin"));
         addKeyValue(info, "SDK_Ver(FAN)", getVersion("FAN"));
         addKeyValue(info, "SDK_Ver(maio)", getVersion("maio"));
         addKeyValue(info, "SDK_Ver(nend)", getVersion("nend"));
@@ -121,7 +120,6 @@ public class InfoActivity extends AppCompatActivity {
         addKeyValue(info, "国コード", tm.getNetworkCountryIso());
         addKeyValue(info, "MCC+MNC", tm.getNetworkOperator());
         addKeyValue(info, "サービスプロバイダの名前", tm.getNetworkOperatorName());
-        addKeyValue(info, "NETWORKの状態", String.valueOf(tm.getNetworkType()));
 
         addValue(info, "--------------------");
 
@@ -171,10 +169,10 @@ public class InfoActivity extends AppCompatActivity {
         boolean is_airplane_mode = false;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
             is_airplane_mode = Settings.System.getInt(getContentResolver(),
-                Settings.System.AIRPLANE_MODE_ON, 0) != 0;
+                    Settings.System.AIRPLANE_MODE_ON, 0) != 0;
         } else {
             is_airplane_mode = Settings.Global.getInt(getContentResolver(),
-                Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+                    Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
         }
         addKeyValue(info, "airplane_mode", String.valueOf(is_airplane_mode));
 
@@ -214,14 +212,6 @@ public class InfoActivity extends AppCompatActivity {
                         version = String.valueOf(getResources().getInteger(versionId));
                     } catch (Exception ignored) {
                     }
-                }
-                break;
-            case "AppLovin":
-                try {
-                    Class<?> cls = Class.forName("com.applovin.sdk.AppLovinSdk");
-                    Field field = cls.getField("VERSION");
-                    version = (String) field.get(null);
-                } catch (Exception ignored) {
                 }
                 break;
             case "FAN":
@@ -266,7 +256,7 @@ public class InfoActivity extends AppCompatActivity {
                 try {
                     Class<?> cls = Class.forName("com.five_corp.ad.FiveAd");
                     Method isInitialized = cls.getMethod("isInitialized");
-                    if ((boolean)isInitialized.invoke(cls)) {
+                    if ((boolean) isInitialized.invoke(cls)) {
                         Method getSingleton = cls.getMethod("getSingleton");
                         Object fiveAd = getSingleton.invoke(cls);
 
@@ -283,7 +273,7 @@ public class InfoActivity extends AppCompatActivity {
                     Object adManager = getAdManager.invoke(null);
                     Class<?> adManagerCls = Class.forName("com.bytedance.sdk.openadsdk.TTAdManager");
                     Method getSDKVersion = adManagerCls.getMethod("getSDKVersion");
-                    version = (String)getSDKVersion.invoke(adManager);
+                    version = (String) getSDKVersion.invoke(adManager);
 
                 } catch (Exception e) {
                     e.printStackTrace();
