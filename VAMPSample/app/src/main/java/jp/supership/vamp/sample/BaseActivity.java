@@ -4,8 +4,8 @@ import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Html;
 import android.text.format.DateFormat;
 import android.view.Menu;
@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import java.util.Calendar;
+import java.util.Formatter;
 
 import jp.supership.vamp.VAMP;
 
@@ -21,7 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private static final String TAG = "VAMPSAMPLE";
     protected TextView mLogView;
 
-    // Sound Mediaplayer
+    // Sound MediaPlayer
     private MediaPlayer mediaPlayer;
     private boolean isPlay;
 
@@ -137,14 +138,14 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected void addLog(String message, int color) {
         android.util.Log.d(TAG, message);
-        String hex_color = String.format("%06x", Integer.valueOf(color & 0x00ffffff));
-        StringBuffer buffer = new StringBuffer();
-        buffer.append(getDateString());
-        buffer.append("<font color=#" + hex_color + ">");
-        buffer.append(message);
-        buffer.append("</font>");
+        String hex_color = String.format("%06x", color & 0x00ffffff);
+        StringBuilder builder = new StringBuilder();
+        builder.append(getDateString());
+        builder.append("<font color=#" + hex_color + ">");
+        builder.append(message);
+        builder.append("</font>");
 
-        saveLog(buffer.toString());
+        saveLog(builder.toString());
     }
 
     /**
@@ -154,11 +155,11 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected void addLog(String message) {
         android.util.Log.d(TAG, message);
-        StringBuffer buffer = new StringBuffer();
-        buffer.append(getDateString());
-        buffer.append(message);
+        StringBuilder builder = new StringBuilder();
+        builder.append(getDateString());
+        builder.append(message);
 
-        saveLog(buffer.toString());
+        saveLog(builder.toString());
     }
 
     /**
@@ -169,7 +170,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (sp != null) {
             SharedPreferences.Editor editor = sp.edit();
             editor.putString("reward_log", "");
-            editor.commit();
+            editor.apply();
         }
 
         updateLog("");
@@ -194,23 +195,23 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param message
      */
     private void saveLog(String message) {
-        StringBuffer buffer = new StringBuffer(message);
+        StringBuilder builder = new StringBuilder(message);
         String log = "";
         SharedPreferences sp = getSharedPreferences("log", MODE_PRIVATE);
         if (sp != null) {
             log = sp.getString("reward_log", "");
 
             if (log != null && log.length() > 0) {
-                buffer.append("<br>");
-                buffer.append(log);
+                builder.append("<br>");
+                builder.append(log);
             }
 
             SharedPreferences.Editor editor = sp.edit();
-            editor.putString("reward_log", buffer.toString());
-            editor.commit();
+            editor.putString("reward_log", builder.toString());
+            editor.apply();
         }
 
-        updateLog(buffer.toString());
+        updateLog(builder.toString());
     }
 
     /**
@@ -232,7 +233,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
     //endregion
 
-    //region Sound Mediaplayer
+    //region Sound MediaPlayer
 
     /**
      * メディアプレイヤー初期化

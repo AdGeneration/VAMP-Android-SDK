@@ -1,3 +1,4 @@
+  
 # Add project specific ProGuard rules here.
 # By default, the flags in this file are appended to flags specified
 # in ${sdk.dir}/tools/proguard/proguard-android.txt
@@ -46,39 +47,13 @@
 -keep class net.nend.android.** { *; }
 -dontwarn net.nend.android.**
 
-# Vungle
--keep class com.vungle.warren.** { *; }
--dontwarn com.vungle.warren.error.VungleError$ErrorCode
-
-# Moat SDK
--keep class com.moat.** { *; }
--dontwarn com.moat.**
-
-# Okio
--dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
-
-# Retrofit
--dontwarn okio.**
--dontwarn retrofit2.Platform$Java8
-
-# Gson
--keepattributes Signature
--keepattributes *Annotation*
--dontwarn sun.misc.**
--keep class com.google.gson.examples.android.model.** { *; }
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
-
-# Google Android Advertising ID
--keep class com.google.android.gms.internal.** { *; }
--dontwarn com.google.android.gms.ads.identifier.**
 
 #Tapjoy
 
 -keep class com.tapjoy.** { *; }
-#-keep class com.moat.** { *; }     Vungleでも設定してるのでこっちはコメントアウト
+-keep class com.moat.** { *; }
 -keepattributes JavascriptInterface
+-keepattributes *Annotation*
 -keep class * extends java.util.ListResourceBundle {
 protected Object[][] getContents();
 }
@@ -95,44 +70,9 @@ public static final ** CREATOR;
 -keep class com.google.android.gms.ads.identifier.** { *; }
 -dontwarn com.tapjoy.**
 
-# Mintegral
+# LINEAds
+-keep class com.five_corp.ad.** { *; }
 
-#-keepattributes Signature       Vungleでも設定してるのでこっちはコメントアウト
-#-keepattributes *Annotation*    Vungleでも設定してるのでこっちはコメントアウト
--keep class com.mintegral.msdk.**{ *; }
--keep class com.mintegral.** {*; }
--keep interface com.mintegral.** {*; }
--keep class android.support.v4.** { *; }
--dontwarn com.mintegral.**
--keep class **.R$* { public static final int mintegral*; }
--keep class com.alphab.** {*; }
--keep interface com.alphab.** {*; }
-
-# MoPub
--keepclassmembers class com.mopub.** { public *; }
--keep public class com.mopub.**
--keep public class android.webkit.JavascriptInterface {}
-
--keep class * extends com.mopub.nativeads.CustomEventRewardedAd {}
-
--keepclassmembers class ** { @com.mopub.common.util.ReflectionTarget *; }
--keep class com.google.android.gms.common.GooglePlayServicesUtil {*;}
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient {*;}
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info {*;}
-
--keep class * extends java.util.ListResourceBundle {
-    protected Object[][] getContents();
-}
-
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
-    public static final *** NULL;
-}
-
--keepnames @com.google.android.gms.common.annotation.KeepName class *
--keepclassmembernames class * {
-    @com.google.android.gms.common.annotation.KeepName *;
-}
-
--keepnames class * implements android.os.Parcelable {
-    public static final ** CREATOR;
-}
+# Pangle
+-keep class com.bytedance.sdk.** { *; }
+-keep class com.pgl.sys.ces.* {*;}

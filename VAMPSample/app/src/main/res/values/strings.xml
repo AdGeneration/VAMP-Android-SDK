@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">VAMPSample</string>
+    <string name="vamp_ad_id">ID:%s</string>
     <string name="vamp_ad1">Ad1</string>
     <string name="vamp_ad2">Ad2</string>
-    <string name="vamp_ad3">Ad3</string>
     <string name="vamp_multi">Multi Ad</string>
     <string name="info">Info</string>
     <string name="load">Load</string>
@@ -10,8 +10,4 @@
     <string name="load_show">Load &amp; Show</string>
     <string name="sound_off">SoundOff</string>
     <string name="sound_on">SoundOn</string>
-    <string name="set_cap">Set FrequencyCap</string>
-    <string name="clear_cap">Clear FrequencyCap</string>
-    <string name="get_cap_status">Get FrequencyCappedStatus</string>
-    <string name="reset_cap">Reset FrequencyCap</string>
 </resources>
