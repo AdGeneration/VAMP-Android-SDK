@@ -36,19 +36,19 @@ dependencies {
     // VAMP
     implementation 'jp.supership.vamp:vamp-sdk:4.4.2'
     // AdMob
-    implementation 'jp.supership.vamp:vamp-admob-adapter:20.6.0.0'
+    implementation 'jp.supership.vamp:vamp-admob-adapter:20.+'
     // UnityAds
-    implementation 'jp.supership.vamp:vamp-unityads-adapter:4.1.0.0'
+    implementation 'jp.supership.vamp:vamp-unityads-adapter:4.+'
     // Tapjoy
-    implementation 'jp.supership.vamp:vamp-tapjoy-adapter:12.9.1.0'
+    implementation 'jp.supership.vamp:vamp-tapjoy-adapter:12.+'
     // nend
-    implementation 'jp.supership.vamp:vamp-nend-adapter:8.1.0.0'
+    implementation 'jp.supership.vamp:vamp-nend-adapter:8.+'
     // FAN
-    implementation 'jp.supership.vamp:vamp-fan-adapter:6.10.0.0'
+    implementation 'jp.supership.vamp:vamp-fan-adapter:6.+'
     // maio
-    implementation 'jp.supership.vamp:vamp-maio-adapter:1.1.16.0'
+    implementation 'jp.supership.vamp:vamp-maio-adapter:1.+'
     // LINEAds
-    implementation 'jp.supership.vamp:vamp-lineads-adapter:2.4.20220216.0'
+    implementation 'jp.supership.vamp:vamp-lineads-adapter:2.+'
     // Pangle
-    implementation 'jp.supership.vamp:vamp-pangle-adapter:4.3.0.6.1'
+    implementation 'jp.supership.vamp:vamp-pangle-adapter:4.+'
 }
