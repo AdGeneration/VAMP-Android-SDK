@@ -78,7 +78,7 @@ public class InfoActivity extends AppCompatActivity {
 
         // id
         addValue(info, "--------------------");
-        addKeyValue(info, "AD_ID", VAMPAdActivity.VAMP_AD_ID);
+        addKeyValue(info, "AD_ID", VAMPAd1Activity.VAMP_AD_ID);
         addValue(info, "--------------------");
         addKeyValue(info, "SDK_Ver(VAMP)", getVersion("VAMP"));
         addKeyValue(info, "SDK_Ver(Admob)", getVersion("Admob"));

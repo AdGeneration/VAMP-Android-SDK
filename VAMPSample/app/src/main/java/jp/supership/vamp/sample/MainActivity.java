@@ -1,27 +1,19 @@
 package jp.supership.vamp.sample;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import jp.supership.vamp.VAMP;
-
 import jp.supership.vamp.VAMPGetLocationListener;
 import jp.supership.vamp.VAMPLocation;
-import jp.supership.vamp.VAMPPrivacySettings;
-import jp.supership.vamp.VAMPTargeting;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, VAMPAdActivity.class));
+                startActivity(new Intent(MainActivity.this, VAMPAd1Activity.class));
             }
         });
 

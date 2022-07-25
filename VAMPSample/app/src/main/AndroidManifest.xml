@@ -30,7 +30,7 @@
         </activity>
         <activity android:name=".InfoActivity" />
         <activity
-            android:name=".VAMPAdActivity"
+            android:name=".VAMPAd1Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
         <activity
             android:name=".VAMPAd2Activity"

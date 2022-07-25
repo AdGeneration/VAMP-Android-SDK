@@ -34,21 +34,21 @@ dependencies {
     implementation 'com.google.android.gms:play-services-base:17.6.0'
     implementation 'com.google.android.gms:play-services-ads-identifier:17.6.0'
     // VAMP
-    implementation 'jp.supership.vamp:vamp-sdk:4.4.2'
+    implementation 'jp.supership.vamp:vamp-sdk:4.5.0'
     // AdMob
-    implementation 'jp.supership.vamp:vamp-admob-adapter:20.+'
+    implementation 'jp.supership.vamp:vamp-admob-adapter:+'
     // UnityAds
-    implementation 'jp.supership.vamp:vamp-unityads-adapter:4.+'
+    implementation 'jp.supership.vamp:vamp-unityads-adapter:+'
     // Tapjoy
-    implementation 'jp.supership.vamp:vamp-tapjoy-adapter:12.+'
+    implementation 'jp.supership.vamp:vamp-tapjoy-adapter:+'
     // nend
-    implementation 'jp.supership.vamp:vamp-nend-adapter:8.+'
+    implementation 'jp.supership.vamp:vamp-nend-adapter:+'
     // FAN
-    implementation 'jp.supership.vamp:vamp-fan-adapter:6.+'
+    implementation 'jp.supership.vamp:vamp-fan-adapter:+'
     // maio
-    implementation 'jp.supership.vamp:vamp-maio-adapter:1.+'
+    implementation 'jp.supership.vamp:vamp-maio-adapter:+'
     // LINEAds
-    implementation 'jp.supership.vamp:vamp-lineads-adapter:2.+'
+    implementation 'jp.supership.vamp:vamp-lineads-adapter:+'
     // Pangle
-    implementation 'jp.supership.vamp:vamp-pangle-adapter:4.+'
+    implementation 'jp.supership.vamp:vamp-pangle-adapter:+'
 }
