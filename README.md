@@ -1,7 +1,10 @@
 # VAMP-Android-SDK
 
-## Sample
+## 実装サンプル
 [ダウンロード](https://github.com/AdGeneration/VAMP-Android-SDK/releases)
 
-## Documents
-[実装マニュアル 他](https://supership-jp.github.io/VAMP-SDK-Document/android/)
+## 実装マニュアル
+APIリファレンス、実装マニュアル、FAQなどは[マニュアル](https://supership-jp.github.io/VAMP-SDK-Document/android/)よりご確認ください。
+
+## Sample
+
