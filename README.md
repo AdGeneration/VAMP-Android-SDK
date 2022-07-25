@@ -5,6 +5,3 @@
 
 ## 実装マニュアル
 APIリファレンス、実装マニュアル、FAQなどは[マニュアル](https://supership-jp.github.io/VAMP-SDK-Document/android/)よりご確認ください。
-
-## Sample
-
