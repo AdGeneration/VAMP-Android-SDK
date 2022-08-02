@@ -35,9 +35,6 @@
         <activity
             android:name=".VAMPAd2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-        <activity
-            android:name=".VAMPMultiAdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
         <!--AdMob-->
         <!--TestID-->

@@ -43,7 +43,7 @@ public class VAMPAd1Activity extends BaseActivity {
                             @Override
                             public void onStartedLoading(@NonNull String placementId,
                                                          @NonNull String adNetworkName) {
-                                // 優先順にアドネットワークごとの広告取得を開始します。
+                                // アドネットワークごとの広告取得が開始されたときに通知されます。
                                 addLog(String.format("onStartedLoading(%s, %s)",
                                         placementId, adNetworkName));
                             }
@@ -157,7 +157,7 @@ public class VAMPAd1Activity extends BaseActivity {
         // VAMPActivityEventDispatcher#onCreate、
         // VAMPActivityEventDispatcher#onDestroy、および
         // VAMPActivityEventDispatcher#onSaveInstanceStateメソッドをそれぞれ呼ぶことで、
-        // Activityが破棄された後、再生成された場合でもVAMPイベントを受け取ることができます。
+        // 広告の表示中にActivityが破棄された後、再生成された場合でもVAMPイベントを受け取ることができます。
         VAMPActivityEventDispatcher.getInstance()
                 .onSaveInstanceState(outState, VAMP_AD_ID);
 
@@ -172,6 +172,7 @@ public class VAMPAd1Activity extends BaseActivity {
             addLog(String.format("onFailedToShow(%s, %s)",
                     placementId, error), Color.RED);
 
+            // エラーにはユーザキャンセルも含まれます。
             if (error == VAMPError.USER_CANCEL) {
                 // ユーザが広告再生を途中でキャンセルしました。
             }

@@ -80,15 +80,15 @@ public class InfoActivity extends AppCompatActivity {
         addValue(info, "--------------------");
         addKeyValue(info, "AD_ID", VAMPAd1Activity.VAMP_AD_ID);
         addValue(info, "--------------------");
-        addKeyValue(info, "SDK_Ver(VAMP)", getVersion("VAMP"));
-        addKeyValue(info, "SDK_Ver(Admob)", getVersion("Admob"));
-        addKeyValue(info, "SDK_Ver(FAN)", getVersion("FAN"));
-        addKeyValue(info, "SDK_Ver(maio)", getVersion("maio"));
-        addKeyValue(info, "SDK_Ver(nend)", getVersion("nend"));
-        addKeyValue(info, "SDK_Ver(Tapjoy)", getVersion("Tapjoy"));
-        addKeyValue(info, "SDK_Ver(UnityAds)", getVersion("UnityAds"));
-        addKeyValue(info, "SDK_Ver(LINEAds)", getVersion("LINEAds"));
-        addKeyValue(info, "SDK_Ver(Pangle)", getVersion("Pangle"));
+        addKeyValue(info, "SDK_Ver(VAMP)", VAMP.SDKVersion());
+        addKeyValue(info, "SDK_Ver(Admob)", getAdnwVersion("jp.supership.vamp.mediation.admob.AdMobAdapter"));
+        addKeyValue(info, "SDK_Ver(FAN)", getAdnwVersion("jp.supership.vamp.mediation.fan.FANAdapter"));
+        addKeyValue(info, "SDK_Ver(maio)", getAdnwVersion("jp.supership.vamp.mediation.maio.MaioAdapter"));
+        addKeyValue(info, "SDK_Ver(nend)", getAdnwVersion("jp.supership.vamp.mediation.nend.NendAdapter"));
+        addKeyValue(info, "SDK_Ver(Tapjoy)", getAdnwVersion("jp.supership.vamp.mediation.tapjoy.TapjoyAdapter"));
+        addKeyValue(info, "SDK_Ver(UnityAds)", getAdnwVersion("jp.supership.vamp.mediation.unityads.UnityAdsAdapter"));
+        addKeyValue(info, "SDK_Ver(LINEAds)", getAdnwVersion("jp.supership.vamp.mediation.lineads.LINEAdsAdapter"));
+        addKeyValue(info, "SDK_Ver(Pangle)", getAdnwVersion("jp.supership.vamp.mediation.pangle.PangleAdapter"));
         addValue(info, "--------------------");
 
         // PackageManager
@@ -195,91 +195,18 @@ public class InfoActivity extends AppCompatActivity {
     /**
      * 指定adnwのSDKバージョン取得
      *
-     * @param adnw
-     * @return
+     * @param className アドネットワークアダプタのクラス名
+     * @return the version of adnw
      */
-    private String getVersion(String adnw) {
-        String version = "nothing";
-        switch (adnw) {
-            case "VAMP":
-                version = VAMP.SDKVersion();
-                break;
-            case "Admob":
-                Resources res = getResources();
-                int versionId = res.getIdentifier("google_play_services_version", "integer", getPackageName());
-                if (versionId != 0) {
-                    try {
-                        version = String.valueOf(getResources().getInteger(versionId));
-                    } catch (Exception ignored) {
-                    }
-                }
-                break;
-            case "FAN":
-                try {
-                    Class<?> cls = Class.forName("com.facebook.ads.BuildConfig");
-                    version = (String) cls.getField("VERSION_NAME").get(null);
-                } catch (Exception ignored) {
-                }
-                break;
-            case "maio":
-                try {
-                    Class<?> cls = Class.forName("jp.maio.sdk.android.MaioAds");
-                    Method getSdkVersion = cls.getMethod("getSdkVersion");
-                    version = (String) getSdkVersion.invoke(null);
-                } catch (Exception ignored) {
-                }
-                break;
-            case "nend":
-                try {
-                    Class<?> cls = Class.forName("net.nend.android.BuildConfig");
-                    version = (String) cls.getField("NEND_SDK_VERSION").get(null);
-                } catch (Exception ignored) {
-                }
-                break;
-            case "Tapjoy":
-                try {
-                    Class<?> cls = Class.forName("com.tapjoy.Tapjoy");
-                    Method getVersion = cls.getMethod("getVersion");
-                    version = (String) getVersion.invoke(null);
-                } catch (Exception ignored) {
-                }
-                break;
-            case "UnityAds":
-                try {
-                    Class<?> cls = Class.forName("com.unity3d.ads.UnityAds");
-                    Method getVersion = cls.getMethod("getVersion");
-                    version = (String) getVersion.invoke(null);
-                } catch (Exception ignored) {
-                }
-                break;
-            case "LINEAds":
-                try {
-                    Class<?> cls = Class.forName("com.five_corp.ad.FiveAd");
-                    Method isInitialized = cls.getMethod("isInitialized");
-                    if ((boolean) isInitialized.invoke(cls)) {
-                        Method getSingleton = cls.getMethod("getSingleton");
-                        Object fiveAd = getSingleton.invoke(cls);
-
-                        Method getVersion = cls.getMethod("getVersion");
-                        version = String.valueOf(getVersion.invoke(fiveAd));
-                    }
-                } catch (Exception ignored) {
-                }
-                break;
-            case "Pangle":
-                try {
-                    Class<?> sdkCls = Class.forName("com.bytedance.sdk.openadsdk.TTAdSdk");
-                    Method getAdManager = sdkCls.getMethod("getAdManager");
-                    Object adManager = getAdManager.invoke(null);
-                    Class<?> adManagerCls = Class.forName("com.bytedance.sdk.openadsdk.TTAdManager");
-                    Method getSDKVersion = adManagerCls.getMethod("getSDKVersion");
-                    version = (String) getSDKVersion.invoke(adManager);
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+    private String getAdnwVersion(String className) {
+        try {
+            Class<?> cls = Class.forName(className);
+            Object adapter = cls.newInstance();
+            Method method = cls.getMethod("getAdNetworkVersion");
+            return (String) method.invoke(adapter);
+        } catch (Exception ignored) {
+            return "-";
         }
-        return version;
     }
 
     /**

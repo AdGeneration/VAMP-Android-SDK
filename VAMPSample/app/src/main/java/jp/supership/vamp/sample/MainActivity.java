@@ -55,15 +55,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button multiAdButton = findViewById(R.id.button_vamp_multi);
-        multiAdButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, VAMPMultiAdActivity.class));
-            }
-        });
-
         Button infoButton = findViewById(R.id.button_info);
         infoButton.setOnClickListener(new View.OnClickListener() {
 

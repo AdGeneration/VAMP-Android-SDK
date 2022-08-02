@@ -150,6 +150,7 @@ public class VAMPAd2Activity extends BaseActivity {
             addLog(String.format("onFailedToShow(%s, %s)",
                     placementId, error), Color.RED);
 
+            // エラーにはユーザキャンセルも含まれます。
             if (error == VAMPError.USER_CANCEL) {
                 // ユーザが広告再生を途中でキャンセルしました。
             }
