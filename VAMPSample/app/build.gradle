@@ -34,7 +34,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-base:17.6.0'
     implementation 'com.google.android.gms:play-services-ads-identifier:17.6.0'
     // VAMP
-    implementation 'jp.supership.vamp:vamp-sdk:4.5.1'
+    implementation 'jp.supership.vamp:vamp-sdk:4.6.0'
     // AdMob
     implementation 'jp.supership.vamp:vamp-admob-adapter:+'
     // UnityAds

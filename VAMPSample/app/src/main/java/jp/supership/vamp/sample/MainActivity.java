@@ -30,13 +30,6 @@ public class MainActivity extends AppCompatActivity {
         // リリースする際は必ずコメントアウトしてください
         VAMP.setDebugMode(true);
 
-
-        // ターゲティング設定（AdMob、nend）
-//        VAMP.setTargeting(new VAMPTargeting()
-//            .setGender(VAMPTargeting.Gender.FEMALE)
-//            .setBirthday(new GregorianCalendar(1980, Calendar.DECEMBER, 20).getTime()));
-
-
         Button ad1Button = findViewById(R.id.button_vamp_ad1);
         ad1Button.setOnClickListener(new View.OnClickListener() {
 
