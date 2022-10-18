@@ -3,7 +3,7 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.4'
@@ -16,7 +16,7 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
         maven {
             url "https://jitpack.io"
         }
@@ -27,7 +27,7 @@ allprojects {
         maven {
             url 'http://fan-adn.github.io/nendSDK-Android-lib/library'
         }
-        maven{
+        maven {
             url "https://imobile-maio.github.io/maven"
         }
         maven {

@@ -6,10 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import jp.supership.vamp.VAMPAdvancedListener;
+import androidx.annotation.NonNull;
+
 import jp.supership.vamp.VAMPError;
+import jp.supership.vamp.VAMPEventDispatcher;
 import jp.supership.vamp.VAMPRequest;
 import jp.supership.vamp.VAMPRewardedAd;
+import jp.supership.vamp.VAMPRewardedAdListener;
+import jp.supership.vamp.VAMPRewardedAdLoadListener;
 
 public class VAMPAd2Activity extends BaseActivity {
 
@@ -19,24 +23,21 @@ public class VAMPAd2Activity extends BaseActivity {
      */
     public static final String VAMP_AD_ID = "59756";
 
-    private VAMPRewardedAd rewardedAd;
-
     @Override
     protected void onCreateLayout(Bundle savedInstanceState) {
         setContentView(R.layout.activity_vamp_ad2);
         setTitle(R.string.vamp_ad2);
 
-        // VAMPインスタンスの取得
-        rewardedAd = new VAMPRewardedAd(this, VAMP_AD_ID);
-        rewardedAd.setListener(new AdListener());
+        // 広告をプリロードします。
+        // 広告を取得するのに時間がかかるため、
+        // 事前に広告をダウンロードし、ユーザに待ち時間無く広告を表示することができます。
+        // ※VAMPRewardedAdLoadListenerリスナーはnullでも構いません。
+        VAMPRewardedAd.load(this,
+                VAMP_AD_ID,
+                new VAMPRequest.Builder().build(),
+                null);
 
-        // preload v3.0〜
-        // 新規追加された広告を事前に取得するメソッド
-        // 広告を取得するのに時間がかかるため（動画ファイル、プレイアブルのダウンロード）、
-        // 事前に在庫を確保しておき、ユーザーに待ち時間無く広告を表示するための機能。
-        // ※リスナー（onLoadResult、onFailedToLoadなど）は受け取れません。
-        rewardedAd.preload(new VAMPRequest.Builder().build());
-        addLog("preload() start");
+        addLog("load() start");
 
         Button loadButton = (Button) findViewById(R.id.button_load);
         loadButton.setText(R.string.load_show);
@@ -44,15 +45,56 @@ public class VAMPAd2Activity extends BaseActivity {
 
             @Override
             public void onClick(View v) {
-                // 広告の表示準備ができているか確認
-                if (!rewardedAd.isReady()) {
-                    // 広告取得
-                    rewardedAd.load(new VAMPRequest.Builder().build());
-                    addLog("[LOAD & SHOW] load()");
-                } else {
-                    // 広告取得済みなので表示
+                VAMPRewardedAd rewardedAd = VAMPRewardedAd.of(VAMP_AD_ID);
+
+                // 広告の表示準備ができているか確認します。
+                // rewardedAdオブジェクトがnullでなければ、表示の準備ができています。
+                if (rewardedAd != null) {
+                    // 準備が完了していた場合、動画広告を再生します。
                     rewardedAd.show(VAMPAd2Activity.this);
-                    addLog("[LOAD & SHOW] isReady:true → show()");
+
+                    addLog("[LOAD & SHOW] loaded → show()");
+                } else {
+                    // 広告の取得を開始します。
+                    VAMPRewardedAd.load(VAMPAd2Activity.this,
+                            VAMP_AD_ID,
+                            new VAMPRequest.Builder().build(),
+                            new VAMPRewardedAdLoadListener() {
+                                @Override
+                                public void onReceived(@NonNull String placementId) {
+                                    // 動画表示の準備が完了しました。
+                                    addLog(String.format("onReceived(%s)", placementId));
+
+                                    // 広告を取得できたため、動画広告を再生します。
+                                    VAMPRewardedAd rewardedAd = VAMPRewardedAd.of(placementId);
+                                    rewardedAd.show(VAMPAd2Activity.this);
+                                }
+
+                                @Override
+                                public void onFailedToLoad(@NonNull String placementId,
+                                                           VAMPError error) {
+                                    // 広告取得失敗
+                                    // 広告が取得できなかったときに通知されます。
+                                    // 例）在庫が無い、タイムアウトなど
+                                    addLog(String.format("onFailedToLoad(%s, %s)",
+                                            placementId, error), Color.RED);
+
+                                    if (error == VAMPError.NO_ADSTOCK) {
+                                        // 在庫が無いので、再度loadをしてもらう必要があります。
+                                        // 連続で発生する場合、時間を置いてからloadをする必要があります。
+                                    } else if (error == VAMPError.NO_ADNETWORK) {
+                                        // アドジェネ管理画面でアドネットワークの配信がONになっていない、
+                                        // またはEU圏からのアクセスの場合(GDPR)発生します。
+                                    } else if (error == VAMPError.NEED_CONNECTION) {
+                                        // ネットワークに接続できない状況です。
+                                        // 電波状況をご確認ください。
+                                    } else if (error == VAMPError.MEDIATION_TIMEOUT) {
+                                        // アドネットワークSDKから返答が得られず、タイムアウトしました。
+                                    }
+                                }
+                            });
+
+                    addLog("[LOAD & SHOW] load()");
                 }
             }
         });
@@ -63,99 +105,86 @@ public class VAMPAd2Activity extends BaseActivity {
         mLogView = findViewById(R.id.logs);
     }
 
-    private class AdListener implements VAMPAdvancedListener {
+    @Override
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
 
-        @Override
-        public void onReceived() {
-            // 広告表示の準備完了
-            addLog("onReceived()");
+        // VAMPイベントを受け取るためにVAMPRewardedAdListenerリスナーを登録します。
+        VAMPEventDispatcher.getInstance()
+                .addListener(VAMP_AD_ID, rewardedAdListener);
+
+        if (getIntent() != null) {
+            // VAMPEventDispatcherは、VAMPRewardedAdListenerリスナーが登録されていない場合、
+            // showメソッド呼び出しから広告が閉じられるまでに発生したVAMPイベントを
+            // ディスパッチャー内に蓄積します。
+            //
+            // flushメソッドは、指定した広告枠IDに関するすべての蓄積された
+            // VAMPイベントをリスナーに通知します。
+            // リスナーに通知後、VAMPイベントは破棄されます。
+            // 蓄積されているVAMPイベントがない場合は何もしません。
+            //
+            // この実装例では、onDestroyからonCreateまでの間に発生したVAMPイベントを
+            // ディスパッチャー内に蓄積しておき、Activity再生成時にリスナーに通知しています。
+            // なお、Activityに特化したVAMPActivityEventDispatcherを代わりに使うこともできます。
+            VAMPEventDispatcher.getInstance().flush(VAMP_AD_ID);
         }
 
-        @Override
-        public void onFailedToLoad(VAMPError vampError) {
-            // 広告取得失敗
-            // 広告が取得できなかったときに通知されます。
-            // 例）在庫が無い、タイムアウトなど
-            addLog(String.format("onFailedToLoad(%s)", vampError), Color.RED);
+        addLog("onCreate(" + this + ")");
+    }
 
-            // 必要に応じて広告の再ロードを試みます
-//            if (/* 任意のリトライ条件 */) {
-//                rewardedAd.load(new VAMPRequest.Builder().build());
-//            }
-            if (vampError == VAMPError.NO_ADSTOCK) {
-                // 在庫が無いので、再度loadをしてもらう必要があります。
-                // 連続で発生する場合、時間を置いてからloadをする必要があります。
-            } else if (vampError == VAMPError.NO_ADNETWORK) {
-                // アドジェネ管理画面でアドネットワークの配信がONになっていない、
-                // またはEU圏からのアクセスの場合(GDPR)発生します。
-            } else if (vampError == VAMPError.NEED_CONNECTION) {
-                // ネットワークに接続できない状況です。
-                // 電波状況をご確認ください。
-            } else if (vampError == VAMPError.MEDIATION_TIMEOUT) {
-                // アドネットワークSDKから返答が得られず、タイムアウトしました。
-            }
-        }
+    @Override
+    protected void onDestroy() {
+        // VAMPRewardedAdListenerリスナーを解除します。
+        VAMPEventDispatcher.getInstance().removeListener(VAMP_AD_ID);
 
+        addLog("onDestroy(" + this + ")");
+
+        super.onDestroy();
+    }
+
+    private final VAMPRewardedAdListener rewardedAdListener = new VAMPRewardedAdListener() {
         @Override
-        public void onFailedToShow(VAMPError vampError) {
+        public void onFailedToShow(@NonNull String placementId, VAMPError error) {
             // 広告表示失敗
             // showを実行したが、何らかの理由で広告表示が失敗したときに通知されます。
-            // AdMobは動画再生の途中でユーザーによるキャンセルが可能
-            // @see https://github.com/AdGeneration/VAMP-Android-SDK/wiki/VAMP-Android-API-Errors
-            addLog(String.format("onFailedToShow(%s)", vampError), Color.RED);
+            addLog(String.format("onFailedToShow(%s, %s)",
+                    placementId, error), Color.RED);
 
-            if (vampError == VAMPError.USER_CANCEL) {
+            // エラーにはユーザキャンセルも含まれます。
+            if (error == VAMPError.USER_CANCEL) {
                 // ユーザが広告再生を途中でキャンセルしました。
             }
         }
 
         @Override
-        public void onOpened() {
-            // 動画が表示したタイミングで通知
-            // アドネットワークによって通知タイミングが異なる (動画再生直前、または動画再生時)
-            addLog("onOpened()", Color.BLACK);
+        public void onCompleted(@NonNull String placementId) {
+            // インセンティブ付与が可能になったタイミングで通知されます。
+            // ※アドネットワークによって通知タイミングが異なります。
+            // （動画再生完了時、またはエンドカードを閉じたタイミング）
+            addLog(String.format("onCompleted(%s)", placementId), Color.BLUE);
         }
 
         @Override
-        public void onCompleted() {
-            // インセンティブ付与が可能になったタイミングで通知
-            // アドネットワークによって通知タイミングが異なる（動画再生完了時、またはエンドカードを閉じたタイミング）
-            addLog("onCompleted()", Color.BLACK);
+        public void onOpened(@NonNull String placementId) {
+            // 動画が表示されたタイミングで通知されます。
+            // ※アドネットワークによって通知タイミングが異なります。
+            // (動画再生直前、または動画再生時)
+            addLog(String.format("onOpened(%s)", placementId), Color.BLACK);
         }
 
         @Override
-        public void onClosed(boolean clicked) {
-            // 動画プレーヤーやエンドカードが表示終了
-            // ＜注意：ユーザキャンセルなども含むので、インセンティブ付与はonCompleteで判定すること＞
-            addLog(String.format("onClosed(%s)", clicked), Color.BLACK);
+        public void onClosed(@NonNull String placementId, boolean adClicked) {
+            // 動画プレイヤーやエンドカードが閉じられたタイミングで通知されます。
+            // ＜注意：ユーザキャンセルなども含むので、インセンティブ付与はonCompletedで判定してください＞
+            addLog(String.format("onClosed(%s, %s)",
+                    placementId, adClicked), Color.BLACK);
         }
 
         @Override
-        public void onExpired() {
-            // 有効期限オーバー
-            // ＜注意：onReceiveを受けてからの有効期限が切れた。showするには再度loadを行う必要が有ります＞
-            addLog("onExpired()", Color.RED);
+        public void onExpired(@NonNull String placementId) {
+            // 有効期限オーバーのときに通知されます。
+            // ＜注意：onReceivedを受けてからの有効期限が切れました。showするには再度loadを行う必要が有ります＞
+            addLog(String.format("onExpired(%s)", placementId), Color.RED);
         }
-
-        @Override
-        public void onLoadStart(String adnwName) {
-            // 優先順にアドネットワークごとの広告取得を開始
-            addLog(String.format("onLoadStart(%s)", adnwName));
-        }
-
-        @Override
-        public void onLoadResult(String adnwName, boolean success, String message) {
-            // アドネットワークを１つずつ呼び出した結果、広告在庫が取得できたかをsuccessフラグで確認
-            if (success) {
-                // 広告取得できたので表示
-                rewardedAd.show(VAMPAd2Activity.this);
-                addLog(String.format("onLoadResult(%s, success:%s, message:%s)", adnwName, success, message), Color.BLACK);
-            } else {
-                // 失敗しても、次のアドネットワークがあれば、広告取得を試みます。
-                // 最終的に全てのアドネットワークの広告在庫が無ければ
-                // onFailedToLoadのNO_ADSTOCKが通知されます。
-                addLog(String.format("onLoadResult(%s, success:%s, message:%s)", adnwName, success, message), Color.RED);
-            }
-        }
-    }
+    };
 }
