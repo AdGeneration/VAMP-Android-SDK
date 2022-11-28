@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import jp.supership.vamp.VAMP;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             builder.append("APP v");
             builder.append(p_info.versionName);
             builder.append(" / ");
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException ignored) {
         }
         builder.append("SDK ");
         builder.append(VAMP.SDKVersion());
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         VAMP.getLocation(new VAMPGetLocationListener() {
 
             @Override
-            public void onLocation(VAMPLocation location) {
+            public void onLocation(@NonNull VAMPLocation location) {
                 StringBuilder sb = new StringBuilder(version);
                 sb.append(" / ");
                 sb.append(location.getCountryCode());
