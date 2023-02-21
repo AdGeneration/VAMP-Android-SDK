@@ -17,7 +17,7 @@
 #   public *;
 #}
 
-#AdGeneration(VAMP)
+#VAMP
 
 -keepclasseswithmembers class jp.supership.vamp.** { *; }
 
@@ -25,10 +25,6 @@
 
 -keep class com.google.android.gms.** { *; }
 -dontwarn com.google.android.gms.**
-
-#AppLovin
-
--keep class com.applovin.** { *; }
 
 #maio
 
@@ -46,7 +42,6 @@
 
 -keep class net.nend.android.** { *; }
 -dontwarn net.nend.android.**
-
 
 #Tapjoy
 
@@ -71,8 +66,36 @@ public static final ** CREATOR;
 -dontwarn com.tapjoy.**
 
 # LINEAds
+
 -keep class com.five_corp.ad.** { *; }
 
 # Pangle
+
 -keep class com.bytedance.sdk.** { *; }
 -keep class com.pgl.sys.ces.* {*;}
+
+# ironSource
+
+-keepclassmembers class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator *;
+}
+#unity
+-keep class com.ironsource.unity.androidbridge.** { *;}
+-keep class com.google.android.gms.ads.** {public *;}
+-keep class com.google.android.gms.appset.** { *; }
+-keep class com.google.android.gms.tasks.** { *; }
+#adapters
+-keep class com.ironsource.adapters.** { *; }
+#sdk
+-dontwarn com.ironsource.**
+-dontwarn com.ironsource.adapters.**
+-keepclassmembers class com.ironsource.** { public *; }
+-keep public class com.ironsource.**
+-keep class com.ironsource.adapters.** { *;
+}
+#omid
+-dontwarn com.iab.omid.**
+-keep class com.iab.omid.** {*;}
+#javascript
+-keepattributes JavascriptInterface
+-keepclassmembers class * { @android.webkit.JavascriptInterface <methods>; }

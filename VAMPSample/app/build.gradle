@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
     buildToolsVersion '29.0.3'
     defaultConfig {
         applicationId "jp.supership.vamp.sample"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -25,6 +25,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    packagingOptions {
+        exclude 'META-INF/com.android.tools/proguard/coroutines.pro'
+    }
 }
 
 dependencies {
@@ -34,21 +37,23 @@ dependencies {
     implementation 'com.google.android.gms:play-services-base:17.6.0'
     implementation 'com.google.android.gms:play-services-ads-identifier:17.6.0'
     // VAMP
-    implementation 'jp.supership.vamp:vamp-sdk:4.6.1'
+    implementation 'jp.supership.vamp:vamp-sdk:4.7.0'
     // AdMob
     implementation 'jp.supership.vamp:vamp-admob-adapter:+'
-    // UnityAds
-    implementation 'jp.supership.vamp:vamp-unityads-adapter:+'
-    // Tapjoy
-    implementation 'jp.supership.vamp:vamp-tapjoy-adapter:+'
-    // nend
-    implementation 'jp.supership.vamp:vamp-nend-adapter:+'
     // FAN
     implementation 'jp.supership.vamp:vamp-fan-adapter:+'
-    // maio
-    implementation 'jp.supership.vamp:vamp-maio-adapter:+'
+    // ironSource
+    implementation 'jp.supership.vamp:vamp-ironsource-adapter:+'
     // LINEAds
     implementation 'jp.supership.vamp:vamp-lineads-adapter:+'
+    // maio
+    implementation 'jp.supership.vamp:vamp-maio-adapter:+'
+    // nend
+    implementation 'jp.supership.vamp:vamp-nend-adapter:+'
     // Pangle
     implementation 'jp.supership.vamp:vamp-pangle-adapter:+'
+    // Tapjoy
+    implementation 'jp.supership.vamp:vamp-tapjoy-adapter:+'
+    // UnityAds
+    implementation 'jp.supership.vamp:vamp-unityads-adapter:+'
 }

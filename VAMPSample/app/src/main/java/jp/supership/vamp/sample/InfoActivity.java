@@ -81,14 +81,24 @@ public class InfoActivity extends AppCompatActivity {
         addKeyValue(info, "AD_ID", VAMPAd1Activity.VAMP_AD_ID);
         addValue(info, "--------------------");
         addKeyValue(info, "SDK_Ver(VAMP)", VAMP.SDKVersion());
-        addKeyValue(info, "SDK_Ver(Admob)", getAdnwVersion("jp.supership.vamp.mediation.admob.AdMobAdapter"));
-        addKeyValue(info, "SDK_Ver(FAN)", getAdnwVersion("jp.supership.vamp.mediation.fan.FANAdapter"));
-        addKeyValue(info, "SDK_Ver(maio)", getAdnwVersion("jp.supership.vamp.mediation.maio.MaioAdapter"));
-        addKeyValue(info, "SDK_Ver(nend)", getAdnwVersion("jp.supership.vamp.mediation.nend.NendAdapter"));
-        addKeyValue(info, "SDK_Ver(Tapjoy)", getAdnwVersion("jp.supership.vamp.mediation.tapjoy.TapjoyAdapter"));
-        addKeyValue(info, "SDK_Ver(UnityAds)", getAdnwVersion("jp.supership.vamp.mediation.unityads.UnityAdsAdapter"));
-        addKeyValue(info, "SDK_Ver(LINEAds)", getAdnwVersion("jp.supership.vamp.mediation.lineads.LINEAdsAdapter"));
-        addKeyValue(info, "SDK_Ver(Pangle)", getAdnwVersion("jp.supership.vamp.mediation.pangle.PangleAdapter"));
+        addKeyValue(info, "SDK_Ver(Admob)",
+                getAdnwVersion("jp.supership.vamp.mediation.admob.AdMobAdapter"));
+        addKeyValue(info, "SDK_Ver(FAN)",
+                getAdnwVersion("jp.supership.vamp.mediation.fan.FANAdapter"));
+        addKeyValue(info, "SDK_Ver(ironSource)",
+                getAdnwVersion("jp.supership.vamp.mediation.ironsource.IronSourceAdapter"));
+        addKeyValue(info, "SDK_Ver(LINEAds)",
+                getAdnwVersion("jp.supership.vamp.mediation.lineads.LINEAdsAdapter"));
+        addKeyValue(info, "SDK_Ver(maio)",
+                getAdnwVersion("jp.supership.vamp.mediation.maio.MaioAdapter"));
+        addKeyValue(info, "SDK_Ver(nend)",
+                getAdnwVersion("jp.supership.vamp.mediation.nend.NendAdapter"));
+        addKeyValue(info, "SDK_Ver(Pangle)",
+                getAdnwVersion("jp.supership.vamp.mediation.pangle.PangleAdapter"));
+        addKeyValue(info, "SDK_Ver(Tapjoy)",
+                getAdnwVersion("jp.supership.vamp.mediation.tapjoy.TapjoyAdapter"));
+        addKeyValue(info, "SDK_Ver(UnityAds)",
+                getAdnwVersion("jp.supership.vamp.mediation.unityads.UnityAdsAdapter"));
         addValue(info, "--------------------");
 
         // PackageManager
@@ -152,15 +162,19 @@ public class InfoActivity extends AppCompatActivity {
         }
         addKeyValue(info, "dimensions.x", width.toString());
         addKeyValue(info, "dimensions.y", height.toString());
-        addKeyValue(info, "widthDips", String.valueOf((int) ((matrics.widthPixels / matrics.density) + 0.5f)));
-        addKeyValue(info, "heightDips", String.valueOf((int) ((matrics.heightPixels / matrics.density) + 0.5f)));
+        addKeyValue(info, "widthDips",
+                String.valueOf((int) ((matrics.widthPixels / matrics.density) + 0.5f)));
+        addKeyValue(info, "heightDips",
+                String.valueOf((int) ((matrics.heightPixels / matrics.density) + 0.5f)));
         addValue(info, "--------------------");
 
         // ConnectivityManager
         ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo n_info = cm.getActiveNetworkInfo();
         if (n_info != null) {
-            addKeyValue(info, n_info.getTypeName() + "[" + n_info.getState().name() + "]", n_info.isConnectedOrConnecting() ? "接続あり" : "接続なし");
+            addKeyValue(info, n_info.getTypeName() + "[" + n_info
+                    .getState()
+                    .name() + "]", n_info.isConnectedOrConnecting() ? "接続あり" : "接続なし");
         } else {
             addKeyValue(info, "connected", "NetworkInfo取得なし");
         }
@@ -177,11 +191,14 @@ public class InfoActivity extends AppCompatActivity {
         addKeyValue(info, "airplane_mode", String.valueOf(is_airplane_mode));
 
         // WifiManager（※ACCESS_WIFI_STATEのpermissionが必要）
-        @SuppressLint("WifiManagerLeak") WifiManager wm = (WifiManager) getSystemService(WIFI_SERVICE);
+        @SuppressLint("WifiManagerLeak") WifiManager wm = (WifiManager) getSystemService(
+                WIFI_SERVICE);
         WifiInfo w_info = wm.getConnectionInfo();
         addKeyValue(info, "Wifi SSID", w_info.getSSID());
         int ip = w_info.getIpAddress();
-        addKeyValue(info, "Wifi IP Adrress", String.format(Locale.US, "%02d.%02d.%02d.%02d", (ip >> 0) & 0xff, (ip >> 8) & 0xff, (ip >> 16) & 0xff, (ip >> 24) & 0xff));
+        addKeyValue(info, "Wifi IP Adrress",
+                String.format(Locale.US, "%02d.%02d.%02d.%02d", (ip >> 0) & 0xff, (ip >> 8) & 0xff,
+                        (ip >> 16) & 0xff, (ip >> 24) & 0xff));
         addKeyValue(info, "Wifi MacAddress", w_info.getMacAddress());
         int rssi = w_info.getRssi();
         addKeyValue(info, "Wifi rssi", String.valueOf(rssi));
@@ -222,7 +239,8 @@ public class InfoActivity extends AppCompatActivity {
                     addValue(info, mInfo);
                     addValue(info, "--------------------");
                     addKeyValue(info, "GAID", advertisingId);
-                    addKeyValue(info, "isLimitAdTrackingEnabled", String.valueOf(limitAdTrackingEnabled));
+                    addKeyValue(info, "isLimitAdTrackingEnabled",
+                            String.valueOf(limitAdTrackingEnabled));
                     mInfoTextView.setText(info.toString());
                 }
             });
