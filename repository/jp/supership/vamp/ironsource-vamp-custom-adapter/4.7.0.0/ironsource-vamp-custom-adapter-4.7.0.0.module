@@ -1,0 +1,74 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "ironsource-vamp-custom-adapter",
+    "version": "4.7.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "ironsource-vamp-custom-adapter-4.7.0.0.aar",
+          "url": "ironsource-vamp-custom-adapter-4.7.0.0.aar",
+          "size": 7697,
+          "sha512": "d3dd27c929f66ae8d9ccc808bbc1a8d55379ff15bfa261ef2a26074a3e1a7a1cbbcd819de18a961ec5eda8849cc7de0ac1ebee178bc3354adb5ce731f85ca19d",
+          "sha256": "04cf4340d2cce77324ae14e487193de0e131f445b4b16cc18e08154d8c94d6b9",
+          "sha1": "6fa89032de804275aad1a416a86b2a623407a943",
+          "md5": "188f7b4981ac9f06e8f2483f2bd12f5c"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.ironsource.sdk",
+          "module": "mediationsdk",
+          "version": {
+            "requires": "7.2.6"
+          }
+        },
+        {
+          "group": "jp.supership.vamp",
+          "module": "vamp-sdk",
+          "version": {
+            "requires": "4.7.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ironsource-vamp-custom-adapter-4.7.0.0.aar",
+          "url": "ironsource-vamp-custom-adapter-4.7.0.0.aar",
+          "size": 7697,
+          "sha512": "d3dd27c929f66ae8d9ccc808bbc1a8d55379ff15bfa261ef2a26074a3e1a7a1cbbcd819de18a961ec5eda8849cc7de0ac1ebee178bc3354adb5ce731f85ca19d",
+          "sha256": "04cf4340d2cce77324ae14e487193de0e131f445b4b16cc18e08154d8c94d6b9",
+          "sha1": "6fa89032de804275aad1a416a86b2a623407a943",
+          "md5": "188f7b4981ac9f06e8f2483f2bd12f5c"
+        }
+      ]
+    }
+  ]
+}
