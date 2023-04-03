@@ -4,8 +4,6 @@ import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import android.text.Html;
 import android.text.format.DateFormat;
 import android.view.Menu;
@@ -13,10 +11,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import java.util.Calendar;
-import java.util.Formatter;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import jp.supership.vamp.VAMP;
+
+import java.util.Calendar;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private static final String TAG = "VAMPSAMPLE";
@@ -37,15 +37,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         initSound();
 
         if (savedInstanceState == null) {
-            clearLog();  // ログ消去
+            clearLog(); // ログ消去
         }
         onCreateLayout(savedInstanceState);
 
-        actionBar.setSubtitle(String.format("[Test:%s] [Debug:%s]", VAMP.isTestMode(), VAMP.isDebugMode()));
-
+        actionBar.setSubtitle(
+                String.format("[Test:%s] [Debug:%s]", VAMP.isTestMode(), VAMP.isDebugMode()));
     }
 
-    abstract protected void onCreateLayout(Bundle savedInstanceState);
+    protected abstract void onCreateLayout(Bundle savedInstanceState);
 
     @Override
     protected void onDestroy() {
@@ -90,7 +90,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         loadLog();
     }
 
-    //region ActionBar Menu
+    // region ActionBar Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -126,9 +126,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    //endregion
+    // endregion
 
-    //region log
+    // region log
 
     /**
      * ログ追加
@@ -141,11 +141,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         String hex_color = String.format("%06x", color & 0x00ffffff);
         StringBuilder builder = new StringBuilder();
         builder.append(getDateString());
-        builder.append("<font color=#" + hex_color + ">");
+        builder.append("<font color=#").append(hex_color).append(">");
         builder.append(message);
         builder.append("</font>");
 
         saveLog(builder.toString());
+    }
+
+    protected void addLog(String message, EventType event) {
+        final int color = event.getColor();
+        addLog(message, color);
     }
 
     /**
@@ -162,9 +167,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         saveLog(builder.toString());
     }
 
-    /**
-     * ログ消去
-     */
+    /** ログ消去 */
     private void clearLog() {
         SharedPreferences sp = getSharedPreferences("log", MODE_PRIVATE);
         if (sp != null) {
@@ -176,9 +179,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         updateLog("");
     }
 
-    /**
-     * ログ読み込み
-     */
+    /** ログ読み込み */
     private void loadLog() {
         String log = "";
         SharedPreferences sp = getSharedPreferences("log", MODE_PRIVATE);
@@ -216,6 +217,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 日時文字列取得
+     *
      * @return
      */
     private String getDateString() {
@@ -224,6 +226,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * ログ表示更新
+     *
      * @param message
      */
     private void updateLog(final String message) {
@@ -231,13 +234,11 @@ public abstract class BaseActivity extends AppCompatActivity {
             mLogView.setText(Html.fromHtml(message));
         }
     }
-    //endregion
+    // endregion
 
-    //region Sound MediaPlayer
+    // region Sound MediaPlayer
 
-    /**
-     * メディアプレイヤー初期化
-     */
+    /** メディアプレイヤー初期化 */
     private void initSound() {
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.invisible);
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -251,22 +252,18 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * メディアプレイヤー再生
-     */
+    /** メディアプレイヤー再生 */
     private void startSound() {
         if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
             mediaPlayer.start();
         }
     }
 
-    /**
-     * メディアプレイヤー一時停止
-     */
+    /** メディアプレイヤー一時停止 */
     private void pauseSound() {
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
         }
     }
-    //endregion
+    // endregion
 }

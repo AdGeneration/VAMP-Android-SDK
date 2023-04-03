@@ -10,4 +10,6 @@
     <string name="load_show">Load &amp; Show</string>
     <string name="sound_off">SoundOff</string>
     <string name="sound_on">SoundOn</string>
+    <string name="test_mode">TestMode</string>
+    <string name="debug_mode">DebugMode</string>
 </resources>

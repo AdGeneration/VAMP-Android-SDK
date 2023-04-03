@@ -1,46 +1,28 @@
 package jp.supership.vamp.sample;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.graphics.Point;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.telephony.TelephonyManager;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-
-import java.io.IOException;
-import java.lang.reflect.Method;
-import java.util.Locale;
-
 import jp.supership.vamp.VAMP;
+import jp.supership.vamp.VAMPPrivacySettings;
+
+import java.lang.reflect.Method;
 
 public class InfoActivity extends AppCompatActivity {
 
     private static final String TAG = "VAMPSAMPLE";
-
-    private AdInfoTask mAdInfoTask;
     private TextView mInfoTextView;
-    private String mInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +38,6 @@ public class InfoActivity extends AppCompatActivity {
         mInfoTextView = findViewById(R.id.infos);
 
         initInfo();
-        getGAID();
     }
 
     @Override
@@ -68,37 +49,35 @@ public class InfoActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * 端末情報表示
-     */
-    @SuppressWarnings({ "MissingPermission" })
+    /** 端末情報表示 */
+    @SuppressWarnings({"MissingPermission"})
     private void initInfo() {
         StringBuffer info = new StringBuffer();
         addKeyValue(info, "サポート対象OS", String.valueOf(VAMP.isSupported()));
 
-        // id
-        addValue(info, "--------------------");
-        addKeyValue(info, "AD_ID", VAMPAd1Activity.VAMP_AD_ID);
         addValue(info, "--------------------");
         addKeyValue(info, "SDK_Ver(VAMP)", VAMP.SDKVersion());
-        addKeyValue(info, "SDK_Ver(Admob)",
-                getAdnwVersion("jp.supership.vamp.mediation.admob.AdMobAdapter"));
-        addKeyValue(info, "SDK_Ver(FAN)",
-                getAdnwVersion("jp.supership.vamp.mediation.fan.FANAdapter"));
-        addKeyValue(info, "SDK_Ver(ironSource)",
-                getAdnwVersion("jp.supership.vamp.mediation.ironsource.IronSourceAdapter"));
-        addKeyValue(info, "SDK_Ver(LINEAds)",
-                getAdnwVersion("jp.supership.vamp.mediation.lineads.LINEAdsAdapter"));
-        addKeyValue(info, "SDK_Ver(maio)",
-                getAdnwVersion("jp.supership.vamp.mediation.maio.MaioAdapter"));
-        addKeyValue(info, "SDK_Ver(nend)",
-                getAdnwVersion("jp.supership.vamp.mediation.nend.NendAdapter"));
-        addKeyValue(info, "SDK_Ver(Pangle)",
-                getAdnwVersion("jp.supership.vamp.mediation.pangle.PangleAdapter"));
-        addKeyValue(info, "SDK_Ver(Tapjoy)",
-                getAdnwVersion("jp.supership.vamp.mediation.tapjoy.TapjoyAdapter"));
-        addKeyValue(info, "SDK_Ver(UnityAds)",
-                getAdnwVersion("jp.supership.vamp.mediation.unityads.UnityAdsAdapter"));
+
+        addKeyValue(info, "SDK_Ver(Admob)", getAdnwVersion("AdMob"));
+        addKeyValue(info, "SDK_Ver(FAN)", getAdnwVersion("FAN"));
+        addKeyValue(info, "SDK_Ver(ironSource)", getAdnwVersion("IronSource"));
+        addKeyValue(info, "SDK_Ver(maio)", getAdnwVersion("Maio"));
+        addKeyValue(info, "SDK_Ver(nend)", getAdnwVersion("Nend"));
+        addKeyValue(info, "SDK_Ver(Tapjoy)", getAdnwVersion("Tapjoy"));
+        addKeyValue(info, "SDK_Ver(UnityAds)", getAdnwVersion("UnityAds"));
+        addKeyValue(info, "SDK_Ver(LINEAds)", getAdnwVersion("LINEAds"));
+        addKeyValue(info, "SDK_Ver(Pangle)", getAdnwVersion("Pangle"));
+        addValue(info, "--------------------");
+
+        addKeyValue(info, "Adapter_Ver(Admob)", getAdapterVersion("AdMob"));
+        addKeyValue(info, "Adapter_Ver(FAN)", getAdapterVersion("FAN"));
+        addKeyValue(info, "Adapter_Ver(ironSource)", getAdapterVersion("IronSource"));
+        addKeyValue(info, "Adapter_Ver(maio)", getAdapterVersion("Maio"));
+        addKeyValue(info, "Adapter_Ver(nend)", getAdapterVersion("Nend"));
+        addKeyValue(info, "Adapter_Ver(Tapjoy)", getAdapterVersion("Tapjoy"));
+        addKeyValue(info, "Adapter_Ver(UnityAds)", getAdapterVersion("UnityAds"));
+        addKeyValue(info, "Adapter_Ver(LINEAds)", getAdapterVersion("LINEAds"));
+        addKeyValue(info, "Adapter_Ver(Pangle)", getAdapterVersion("Pangle"));
         addValue(info, "--------------------");
 
         // PackageManager
@@ -135,87 +114,36 @@ public class InfoActivity extends AppCompatActivity {
 
         // Resources
         Resources res = getResources();
-        DisplayMetrics matrics = res.getDisplayMetrics();
         addKeyValue(info, "locale", res.getConfiguration().locale.toString());
-        addKeyValue(info, "density", String.valueOf(matrics.density));
-        Integer width = null;
-        Integer height = null;
-        Display display = getWindowManager().getDefaultDisplay();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            Point point = new Point();
-            display.getRealSize(point);
-            width = point.x;
-            height = point.y;
-        } else {
-            Method getRawWidth = null;
-            try {
-                getRawWidth = Display.class.getMethod("getRawWidth");
-                Method getRawHeight = Display.class.getMethod("getRawHeight");
-                width = (Integer) getRawWidth.invoke(display);
-                height = (Integer) getRawHeight.invoke(display);
-            } catch (Exception ignored) {
-            }
-        }
-        if (width == null || height == null) {
-            width = matrics.widthPixels;
-            height = matrics.heightPixels;
-        }
-        addKeyValue(info, "dimensions.x", width.toString());
-        addKeyValue(info, "dimensions.y", height.toString());
-        addKeyValue(info, "widthDips",
-                String.valueOf((int) ((matrics.widthPixels / matrics.density) + 0.5f)));
-        addKeyValue(info, "heightDips",
-                String.valueOf((int) ((matrics.heightPixels / matrics.density) + 0.5f)));
+
         addValue(info, "--------------------");
 
-        // ConnectivityManager
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        NetworkInfo n_info = cm.getActiveNetworkInfo();
-        if (n_info != null) {
-            addKeyValue(info, n_info.getTypeName() + "[" + n_info
-                    .getState()
-                    .name() + "]", n_info.isConnectedOrConnecting() ? "接続あり" : "接続なし");
-        } else {
-            addKeyValue(info, "connected", "NetworkInfo取得なし");
-        }
+        // 設定値
+        addKeyValue(info, "ChildDirected", VAMPPrivacySettings.getChildDirected().name());
+        addKeyValue(
+                info,
+                "useMetaAudienceNetworkBidding",
+                String.valueOf(VAMP.useMetaAudienceNetworkBidding()));
+        addKeyValue(
+                info,
+                "isMetaAudienceNetworkBiddingTestMode",
+                String.valueOf(VAMP.isMetaAudienceNetworkBiddingTestMode()));
 
-        // Settings
-        boolean is_airplane_mode = false;
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            is_airplane_mode = Settings.System.getInt(getContentResolver(),
-                    Settings.System.AIRPLANE_MODE_ON, 0) != 0;
-        } else {
-            is_airplane_mode = Settings.Global.getInt(getContentResolver(),
-                    Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
-        }
-        addKeyValue(info, "airplane_mode", String.valueOf(is_airplane_mode));
-
-        // WifiManager（※ACCESS_WIFI_STATEのpermissionが必要）
-        @SuppressLint("WifiManagerLeak") WifiManager wm = (WifiManager) getSystemService(
-                WIFI_SERVICE);
-        WifiInfo w_info = wm.getConnectionInfo();
-        addKeyValue(info, "Wifi SSID", w_info.getSSID());
-        int ip = w_info.getIpAddress();
-        addKeyValue(info, "Wifi IP Adrress",
-                String.format(Locale.US, "%02d.%02d.%02d.%02d", (ip >> 0) & 0xff, (ip >> 8) & 0xff,
-                        (ip >> 16) & 0xff, (ip >> 24) & 0xff));
-        addKeyValue(info, "Wifi MacAddress", w_info.getMacAddress());
-        int rssi = w_info.getRssi();
-        addKeyValue(info, "Wifi rssi", String.valueOf(rssi));
-        int level = WifiManager.calculateSignalLevel(rssi, 5);
-        addKeyValue(info, "Wifi level", String.valueOf(level) + "/4");
-
-        mInfo = info.toString();
-        mInfoTextView.setText(mInfo);
+        mInfoTextView.setText(info.toString());
     }
 
     /**
      * 指定adnwのSDKバージョン取得
      *
-     * @param className アドネットワークアダプタのクラス名
+     * @param adnwName アドネットワーク名
      * @return the version of adnw
      */
-    private String getAdnwVersion(String className) {
+    private String getAdnwVersion(String adnwName) {
+        final String className =
+                String.format(
+                        "jp.supership.vamp.mediation.%s.%sAdapter",
+                        adnwName.toLowerCase(), adnwName);
+
         try {
             Class<?> cls = Class.forName(className);
             Object adapter = cls.newInstance();
@@ -227,25 +155,22 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     /**
-     * google advertising id取得＆表示
+     * 指定adnwのAdapterバージョン取得
+     *
+     * @param adnwName アドネットワーク名
+     * @return the version of adapter
      */
-    private void getGAID() {
-        if (mAdInfoTask == null) {
-            mAdInfoTask = new AdInfoTask(this, new AdInfoListener() {
+    private String getAdapterVersion(String adnwName) {
+        final String className =
+                String.format("jp.supership.vamp.mediation.%s.BuildConfig", adnwName.toLowerCase());
+        String version = "-";
+        try {
+            Class<?> cls = Class.forName(className);
+            version = (String) cls.getField("VERSION_NAME").get(null);
+        } catch (Exception ignored) {
 
-                @Override
-                public void AdInfoReady(String advertisingId, boolean limitAdTrackingEnabled) {
-                    StringBuffer info = new StringBuffer();
-                    addValue(info, mInfo);
-                    addValue(info, "--------------------");
-                    addKeyValue(info, "GAID", advertisingId);
-                    addKeyValue(info, "isLimitAdTrackingEnabled",
-                            String.valueOf(limitAdTrackingEnabled));
-                    mInfoTextView.setText(info.toString());
-                }
-            });
-            mAdInfoTask.execute();
         }
+        return version;
     }
 
     private void addValue(StringBuffer buffer, String value) {
@@ -265,45 +190,6 @@ public class InfoActivity extends AppCompatActivity {
             buffer.append(value);
         } else {
             buffer.append("設定なし");
-        }
-    }
-
-    interface AdInfoListener {
-
-        void AdInfoReady(String advertisingId, boolean limitAdTrackingEnabled);
-    }
-
-    private class AdInfoTask extends AsyncTask<Void, Void, Boolean> {
-
-        private Context mContext;
-        private AdInfoListener mAdInfoListener;
-        private AdvertisingIdClient.Info adInfo;
-
-        AdInfoTask(Context context, AdInfoListener listener) {
-            mContext = context;
-            mAdInfoListener = listener;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            try {
-                adInfo = AdvertisingIdClient.getAdvertisingIdInfo(mContext);
-                return true;
-            } catch (GooglePlayServicesNotAvailableException e) {
-                Log.d(TAG, "GooglePlayServicesNotAvailableException e=" + e.getMessage());
-            } catch (GooglePlayServicesRepairableException e) {
-                Log.d(TAG, "GooglePlayServicesRepairableException e=" + e.getMessage());
-            } catch (IOException e) {
-                Log.d(TAG, "IOException e=" + e.getMessage());
-            }
-            return false;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean result) {
-            if (result && adInfo != null) {
-                mAdInfoListener.AdInfoReady(adInfo.getId(), adInfo.isLimitAdTrackingEnabled());
-            }
         }
     }
 }
