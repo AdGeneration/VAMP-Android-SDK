@@ -1,5 +1,6 @@
 package jp.supership.vamp.sample;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import jp.supership.vamp.VAMP;
 
+import java.lang.reflect.Method;
 import java.util.Calendar;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -79,6 +81,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         pauseSound();
+
+        try {
+            Class<?> clazz =
+                    Class.forName("jp.supership.vamp.mediation.ironsource.IronSourceAdapter");
+            Method onPause = clazz.getMethod("onPause", Activity.class);
+            onPause.invoke(null, this);
+        } catch (Exception e) {
+            android.util.Log.i(TAG, e.toString());
+        }
     }
 
     @Override
@@ -88,6 +99,15 @@ public abstract class BaseActivity extends AppCompatActivity {
             startSound();
         }
         loadLog();
+
+        try {
+            Class<?> clazz =
+                    Class.forName("jp.supership.vamp.mediation.ironsource.IronSourceAdapter");
+            Method onResume = clazz.getMethod("onResume", Activity.class);
+            onResume.invoke(null, this);
+        } catch (Exception e) {
+            android.util.Log.i(TAG, e.toString());
+        }
     }
 
     // region ActionBar Menu
