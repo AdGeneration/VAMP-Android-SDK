@@ -1,0 +1,74 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "ironsource-vamp-custom-adapter",
+    "version": "4.7.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "ironsource-vamp-custom-adapter-4.7.1.0.aar",
+          "url": "ironsource-vamp-custom-adapter-4.7.1.0.aar",
+          "size": 7860,
+          "sha512": "d1bf52e0c8a7c5d2892364d5601701915fb714f9ab20ff0a89a4312385ee6c6f016efd476340b183dd64df52540bd282f66541abb098b5e42a0b4afe0449f358",
+          "sha256": "31938ec865536889294629c9c2a37a15ddd4910f60440caae384af1b8eb258d0",
+          "sha1": "a01cbfea48e257dd3d8eb2f6664cb599aad2762f",
+          "md5": "e6b37a71ea43d46be925ec24192aaf50"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.ironsource.sdk",
+          "module": "mediationsdk",
+          "version": {
+            "requires": "7.3.0.1"
+          }
+        },
+        {
+          "group": "jp.supership.vamp",
+          "module": "vamp-sdk",
+          "version": {
+            "requires": "4.7.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ironsource-vamp-custom-adapter-4.7.1.0.aar",
+          "url": "ironsource-vamp-custom-adapter-4.7.1.0.aar",
+          "size": 7860,
+          "sha512": "d1bf52e0c8a7c5d2892364d5601701915fb714f9ab20ff0a89a4312385ee6c6f016efd476340b183dd64df52540bd282f66541abb098b5e42a0b4afe0449f358",
+          "sha256": "31938ec865536889294629c9c2a37a15ddd4910f60440caae384af1b8eb258d0",
+          "sha1": "a01cbfea48e257dd3d8eb2f6664cb599aad2762f",
+          "md5": "e6b37a71ea43d46be925ec24192aaf50"
+        }
+      ]
+    }
+  ]
+}
