@@ -1,0 +1,95 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "applovin-vamp-custom-adapter",
+    "version": "4.7.1.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "applovin-vamp-custom-adapter-4.7.1.1.aar",
+          "url": "applovin-vamp-custom-adapter-4.7.1.1.aar",
+          "size": 8038,
+          "sha512": "c6fe1a0a358298c6437409353f7bae1da79cc2692b2d41ad2f6abc2e20ee6dd35619c53b2d5abd92f88b38a274a527ee261b37654804541b10ad5e13d6301f14",
+          "sha256": "d1d7b4f625245d41dbc2c9df8feaaa43e4db1d153fed02a982fc1e4e1b1e7543",
+          "sha1": "7df38603a8899a17ec1846d54e08af018ebb45b4",
+          "md5": "5a7e317773b1d34c28c88fc3f2f37ef8"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.multidex",
+          "module": "multidex",
+          "version": {
+            "requires": "2.0.1"
+          }
+        },
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.6.1"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.8.0"
+          }
+        },
+        {
+          "group": "com.applovin",
+          "module": "applovin-sdk",
+          "version": {
+            "requires": "11.9.0"
+          }
+        },
+        {
+          "group": "jp.supership.vamp",
+          "module": "vamp-sdk",
+          "version": {
+            "requires": "4.7.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "applovin-vamp-custom-adapter-4.7.1.1.aar",
+          "url": "applovin-vamp-custom-adapter-4.7.1.1.aar",
+          "size": 8038,
+          "sha512": "c6fe1a0a358298c6437409353f7bae1da79cc2692b2d41ad2f6abc2e20ee6dd35619c53b2d5abd92f88b38a274a527ee261b37654804541b10ad5e13d6301f14",
+          "sha256": "d1d7b4f625245d41dbc2c9df8feaaa43e4db1d153fed02a982fc1e4e1b1e7543",
+          "sha1": "7df38603a8899a17ec1846d54e08af018ebb45b4",
+          "md5": "5a7e317773b1d34c28c88fc3f2f37ef8"
+        }
+      ]
+    }
+  ]
+}
