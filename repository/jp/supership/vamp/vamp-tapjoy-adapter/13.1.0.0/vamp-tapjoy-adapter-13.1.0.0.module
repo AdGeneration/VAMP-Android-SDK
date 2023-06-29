@@ -1,0 +1,87 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-tapjoy-adapter",
+    "version": "13.1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-tapjoy-adapter-13.1.0.0.aar",
+          "url": "vamp-tapjoy-adapter-13.1.0.0.aar",
+          "size": 16507,
+          "sha512": "0cd7ca8c0a8b9aaccb8958e651adcd8532256a6ea4e20c42fd7db6fa61ecf08076389f92e35a4147df00bbee052adbc8ec2bc59ddb4173c87ed258f38c682fc5",
+          "sha256": "10b69137e13ad07f4e476fc953e0b46018b6b594d4a19299f9648baf77c70341",
+          "sha1": "9a2cc2eb941175db0a7cb46437cf75f2f7247efc",
+          "md5": "9aa1131db47554c260d87d7c5273f6dc"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.tapjoy",
+          "module": "tapjoy-android-sdk",
+          "version": {
+            "requires": "13.1.0"
+          },
+          "excludes": [
+            {
+              "group": "*",
+              "module": "*"
+            }
+          ],
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "tapjoy-android-sdk",
+              "type": "aar",
+              "extension": "aar"
+            }
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-tapjoy-adapter-13.1.0.0.aar",
+          "url": "vamp-tapjoy-adapter-13.1.0.0.aar",
+          "size": 16507,
+          "sha512": "0cd7ca8c0a8b9aaccb8958e651adcd8532256a6ea4e20c42fd7db6fa61ecf08076389f92e35a4147df00bbee052adbc8ec2bc59ddb4173c87ed258f38c682fc5",
+          "sha256": "10b69137e13ad07f4e476fc953e0b46018b6b594d4a19299f9648baf77c70341",
+          "sha1": "9a2cc2eb941175db0a7cb46437cf75f2f7247efc",
+          "md5": "9aa1131db47554c260d87d7c5273f6dc"
+        }
+      ]
+    }
+  ]
+}
