@@ -1,0 +1,113 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "applovin-vamp-custom-adapter",
+    "version": "4.7.1.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "applovin-vamp-custom-adapter-4.7.1.2.aar",
+          "url": "applovin-vamp-custom-adapter-4.7.1.2.aar",
+          "size": 8036,
+          "sha512": "a4705d08730a8513e9f42716d626bdc75108f5301a8999d40cbac6a84fefef1cc4f3a135d65f39df89c383db30a3f475463f455928f37bcab63ffdb4e52fd2b3",
+          "sha256": "bf09e7d4dccf32a366a553addab77a874d79493200fe7f37064d7741c778235e",
+          "sha1": "cb9dcea9c074bb30bfd21e8dcbbdf577bf1f0b38",
+          "md5": "5df019d289000bcba88f82e4db3e83a0"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.multidex",
+          "module": "multidex",
+          "version": {
+            "requires": "2.0.1"
+          },
+          "excludes": [
+            {
+              "group": "androidx.multidex",
+              "module": "multidex"
+            }
+          ]
+        },
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.6.1"
+          },
+          "excludes": [
+            {
+              "group": "androidx.appcompat",
+              "module": "appcompat"
+            }
+          ]
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.8.0"
+          },
+          "excludes": [
+            {
+              "group": "com.google.android.material",
+              "module": "material"
+            }
+          ]
+        },
+        {
+          "group": "com.applovin",
+          "module": "applovin-sdk",
+          "version": {
+            "requires": "11.9.0"
+          }
+        },
+        {
+          "group": "jp.supership.vamp",
+          "module": "vamp-sdk",
+          "version": {
+            "requires": "4.7.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "applovin-vamp-custom-adapter-4.7.1.2.aar",
+          "url": "applovin-vamp-custom-adapter-4.7.1.2.aar",
+          "size": 8036,
+          "sha512": "a4705d08730a8513e9f42716d626bdc75108f5301a8999d40cbac6a84fefef1cc4f3a135d65f39df89c383db30a3f475463f455928f37bcab63ffdb4e52fd2b3",
+          "sha256": "bf09e7d4dccf32a366a553addab77a874d79493200fe7f37064d7741c778235e",
+          "sha1": "cb9dcea9c074bb30bfd21e8dcbbdf577bf1f0b38",
+          "md5": "5df019d289000bcba88f82e4db3e83a0"
+        }
+      ]
+    }
+  ]
+}

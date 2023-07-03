@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This module was also published with a richer model, Gradle metadata,  -->
+  <!-- which should be used instead. Do not delete the following line which  -->
+  <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
+  <!-- that they should prefer consuming it instead. -->
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>jp.supership.vamp</groupId>
+  <artifactId>applovin-vamp-custom-adapter</artifactId>
+  <version>4.7.1.2</version>
+  <packaging>aar</packaging>
+  <dependencies>
+    <dependency>
+      <groupId>androidx.multidex</groupId>
+      <artifactId>multidex</artifactId>
+      <version>2.0.1</version>
+      <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>multidex</artifactId>
+          <groupId>androidx.multidex</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>androidx.appcompat</groupId>
+      <artifactId>appcompat</artifactId>
+      <version>1.6.1</version>
+      <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>appcompat</artifactId>
+          <groupId>androidx.appcompat</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.google.android.material</groupId>
+      <artifactId>material</artifactId>
+      <version>1.8.0</version>
+      <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>material</artifactId>
+          <groupId>com.google.android.material</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.applovin</groupId>
+      <artifactId>applovin-sdk</artifactId>
+      <version>11.9.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>jp.supership.vamp</groupId>
+      <artifactId>vamp-sdk</artifactId>
+      <version>4.7.1</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+</project>
