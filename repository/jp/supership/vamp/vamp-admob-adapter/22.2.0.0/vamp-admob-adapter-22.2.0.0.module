@@ -1,0 +1,74 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-admob-adapter",
+    "version": "22.2.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-admob-adapter-22.2.0.0.aar",
+          "url": "vamp-admob-adapter-22.2.0.0.aar",
+          "size": 16744,
+          "sha512": "3abbe1edb011dfbd983e7bdf6aebc3a2de00503231efdd4e47825d742e5223d806986c6632ba60ddd1ae56b944ee3aecab6353c1b75b538b96b85d3e78463b39",
+          "sha256": "df363b08c9c580626711fb441047eeed1040d930e8f47cd4dc633b041d1e9553",
+          "sha1": "f3ea6f96301ad5500647e9d625b49e80a3d6a644",
+          "md5": "00297fc228ecb7d8b5a7c71fdbf2c102"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "22.2.0"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-admob-adapter-22.2.0.0.aar",
+          "url": "vamp-admob-adapter-22.2.0.0.aar",
+          "size": 16744,
+          "sha512": "3abbe1edb011dfbd983e7bdf6aebc3a2de00503231efdd4e47825d742e5223d806986c6632ba60ddd1ae56b944ee3aecab6353c1b75b538b96b85d3e78463b39",
+          "sha256": "df363b08c9c580626711fb441047eeed1040d930e8f47cd4dc633b041d1e9553",
+          "sha1": "f3ea6f96301ad5500647e9d625b49e80a3d6a644",
+          "md5": "00297fc228ecb7d8b5a7c71fdbf2c102"
+        }
+      ]
+    }
+  ]
+}
