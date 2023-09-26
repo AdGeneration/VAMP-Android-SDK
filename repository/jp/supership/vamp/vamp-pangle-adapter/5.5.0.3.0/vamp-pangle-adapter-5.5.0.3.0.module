@@ -1,0 +1,81 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-pangle-adapter",
+    "version": "5.5.0.3.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-pangle-adapter-5.5.0.3.0.aar",
+          "url": "vamp-pangle-adapter-5.5.0.3.0.aar",
+          "size": 39559,
+          "sha512": "a2ae005069c914cac1c683c137e39e8c65c50ad54ec7731710a32583de87bf50746e5a1f4a226da599f9c26a14a1982c58194de34f5a638a498a6433d5235243",
+          "sha256": "9e3bd07865b182b08a009cb94239b6992571d4c88468685acf3cabd6e7b766ad",
+          "sha1": "b4918e7404204332fb58b89a56b3e64dda5ab2b5",
+          "md5": "00faea8b74d8819fc681329de6ca9a4e"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.2.0"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "com.pangle.global",
+          "module": "ads-sdk",
+          "version": {
+            "requires": "5.5.0.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-pangle-adapter-5.5.0.3.0.aar",
+          "url": "vamp-pangle-adapter-5.5.0.3.0.aar",
+          "size": 39559,
+          "sha512": "a2ae005069c914cac1c683c137e39e8c65c50ad54ec7731710a32583de87bf50746e5a1f4a226da599f9c26a14a1982c58194de34f5a638a498a6433d5235243",
+          "sha256": "9e3bd07865b182b08a009cb94239b6992571d4c88468685acf3cabd6e7b766ad",
+          "sha1": "b4918e7404204332fb58b89a56b3e64dda5ab2b5",
+          "md5": "00faea8b74d8819fc681329de6ca9a4e"
+        }
+      ]
+    }
+  ]
+}
