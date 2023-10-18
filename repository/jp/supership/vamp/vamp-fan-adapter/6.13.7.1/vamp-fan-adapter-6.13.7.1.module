@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-fan-adapter",
+    "version": "6.13.7.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-fan-adapter-6.13.7.1.aar",
+          "url": "vamp-fan-adapter-6.13.7.1.aar",
+          "size": 16566,
+          "sha512": "21d2a0cd0679d629eb526a62c9af032124fb7fc94ef6af27caf7cbbc35a737a4b3295870a94722d5ec3c2e656c5a7e54dc2bbb74d4319334d7c6d214f799e571",
+          "sha256": "7cde3220dfafd7494010526b4ec2cdc309e2d0882462abbe35bceb1ce7f72812",
+          "sha1": "774ec5bc04a12a79ef5ab49bc932a822e73f80e3",
+          "md5": "78a2b3f189faddd9d4649a7809a08355"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.facebook.android",
+          "module": "audience-network-sdk",
+          "version": {
+            "requires": "6.13.7"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-fan-adapter-6.13.7.1.aar",
+          "url": "vamp-fan-adapter-6.13.7.1.aar",
+          "size": 16566,
+          "sha512": "21d2a0cd0679d629eb526a62c9af032124fb7fc94ef6af27caf7cbbc35a737a4b3295870a94722d5ec3c2e656c5a7e54dc2bbb74d4319334d7c6d214f799e571",
+          "sha256": "7cde3220dfafd7494010526b4ec2cdc309e2d0882462abbe35bceb1ce7f72812",
+          "sha1": "774ec5bc04a12a79ef5ab49bc932a822e73f80e3",
+          "md5": "78a2b3f189faddd9d4649a7809a08355"
+        }
+      ]
+    }
+  ]
+}
