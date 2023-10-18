@@ -1,0 +1,74 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-nend-adapter",
+    "version": "10.0.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-nend-adapter-10.0.0.1.aar",
+          "url": "vamp-nend-adapter-10.0.0.1.aar",
+          "size": 39241,
+          "sha512": "2d13c1ca9d02ca818fff9789af3b3556af8847dcf5e7620d74df98494a890debf73ac62aeb90a90b0ca56bc03e74b5bc3e2290657376ed964292288774eccdb6",
+          "sha256": "6c48a79067efb9320652c6aff42b38db80ecada1b98e2601c3bff9c19c5c4cae",
+          "sha1": "74dd0d04d2e6b29f08b60d354ef474339b30f579",
+          "md5": "2ea5d3f9575aa40baca56bc7e03ff9b0"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "net.nend.android",
+          "module": "nend-sdk",
+          "version": {
+            "requires": "10.0.0"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-nend-adapter-10.0.0.1.aar",
+          "url": "vamp-nend-adapter-10.0.0.1.aar",
+          "size": 39241,
+          "sha512": "2d13c1ca9d02ca818fff9789af3b3556af8847dcf5e7620d74df98494a890debf73ac62aeb90a90b0ca56bc03e74b5bc3e2290657376ed964292288774eccdb6",
+          "sha256": "6c48a79067efb9320652c6aff42b38db80ecada1b98e2601c3bff9c19c5c4cae",
+          "sha1": "74dd0d04d2e6b29f08b60d354ef474339b30f579",
+          "md5": "2ea5d3f9575aa40baca56bc7e03ff9b0"
+        }
+      ]
+    }
+  ]
+}

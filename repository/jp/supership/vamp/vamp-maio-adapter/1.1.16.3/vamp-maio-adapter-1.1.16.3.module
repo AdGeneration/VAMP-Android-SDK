@@ -1,0 +1,87 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-maio-adapter",
+    "version": "1.1.16.3",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-maio-adapter-1.1.16.3.aar",
+          "url": "vamp-maio-adapter-1.1.16.3.aar",
+          "size": 13117,
+          "sha512": "cdbd190172af785a5bdd70f2f715c9d55cd4dec43fe68e0b40921fa176d4eec9eaa0f8c4f56d195fcd3f4e92b3ec1f05a267f29d59e6ed777249cda010208b37",
+          "sha256": "deda6be847f62ff9b0b40a181a23edca33583256fe73cbbaf60b252b1c7a8f26",
+          "sha1": "4437bc00f6ad61f11f84f8e4b510c26a0bb5b529",
+          "md5": "71a8409a1294eab00d5e3196b99dedd2"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.maio",
+          "module": "android-sdk",
+          "version": {
+            "requires": "1.1.16"
+          },
+          "excludes": [
+            {
+              "group": "*",
+              "module": "*"
+            }
+          ],
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "android-sdk",
+              "type": "aar",
+              "extension": "aar"
+            }
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-maio-adapter-1.1.16.3.aar",
+          "url": "vamp-maio-adapter-1.1.16.3.aar",
+          "size": 13117,
+          "sha512": "cdbd190172af785a5bdd70f2f715c9d55cd4dec43fe68e0b40921fa176d4eec9eaa0f8c4f56d195fcd3f4e92b3ec1f05a267f29d59e6ed777249cda010208b37",
+          "sha256": "deda6be847f62ff9b0b40a181a23edca33583256fe73cbbaf60b252b1c7a8f26",
+          "sha1": "4437bc00f6ad61f11f84f8e4b510c26a0bb5b529",
+          "md5": "71a8409a1294eab00d5e3196b99dedd2"
+        }
+      ]
+    }
+  ]
+}

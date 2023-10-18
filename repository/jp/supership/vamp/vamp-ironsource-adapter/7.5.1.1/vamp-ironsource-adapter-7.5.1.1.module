@@ -1,0 +1,81 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-ironsource-adapter",
+    "version": "7.5.1.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-ironsource-adapter-7.5.1.1.aar",
+          "url": "vamp-ironsource-adapter-7.5.1.1.aar",
+          "size": 78266,
+          "sha512": "528976afc48c4bd4e64f068cc1e4dd5d795a3931d39b144dbc78e478097575e81037f2b8d90da97c9c5b3c576dce124fe79c3ae5b1d76aee9db5f8822c278408",
+          "sha256": "bc31c5721b1ce39cd4ba60d74d85a9c6934a4acad86214b60fd910649449d2a4",
+          "sha1": "803271913a297f69e3fc63da8cf6702e394fb24d",
+          "md5": "6c22d42bbdf5c2921f7d20a9ab15bcc4"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.5.0"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.6.1"
+          }
+        },
+        {
+          "group": "com.ironsource.sdk",
+          "module": "mediationsdk",
+          "version": {
+            "requires": "7.5.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-ironsource-adapter-7.5.1.1.aar",
+          "url": "vamp-ironsource-adapter-7.5.1.1.aar",
+          "size": 78266,
+          "sha512": "528976afc48c4bd4e64f068cc1e4dd5d795a3931d39b144dbc78e478097575e81037f2b8d90da97c9c5b3c576dce124fe79c3ae5b1d76aee9db5f8822c278408",
+          "sha256": "bc31c5721b1ce39cd4ba60d74d85a9c6934a4acad86214b60fd910649449d2a4",
+          "sha1": "803271913a297f69e3fc63da8cf6702e394fb24d",
+          "md5": "6c22d42bbdf5c2921f7d20a9ab15bcc4"
+        }
+      ]
+    }
+  ]
+}

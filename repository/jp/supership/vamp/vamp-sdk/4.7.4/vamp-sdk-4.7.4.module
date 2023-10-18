@@ -1,0 +1,81 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-sdk",
+    "version": "4.7.4",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-sdk-4.7.4.aar",
+          "url": "vamp-sdk-4.7.4.aar",
+          "size": 613120,
+          "sha512": "a8ca86f407355c693476420c95814d7f366cc6b4603fc751fd4007b2b19203cf57f752ebcf2a149d80ce7bdec1913de687cb6102a15be3dd4b6b01cbd0a2e771",
+          "sha256": "e6933e10f3bacd1e304b1157db021766b38692a7d2f899b34abb73d9c656589c",
+          "sha1": "8ad1b74db20fbd7149c030cda537d8ef13178d76",
+          "md5": "837b4ce3790836e1f933b6a4ecc64d21"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-base",
+          "version": {
+            "requires": "17.6.0"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads-identifier",
+          "version": {
+            "requires": "17.0.1"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-sdk-4.7.4.aar",
+          "url": "vamp-sdk-4.7.4.aar",
+          "size": 613120,
+          "sha512": "a8ca86f407355c693476420c95814d7f366cc6b4603fc751fd4007b2b19203cf57f752ebcf2a149d80ce7bdec1913de687cb6102a15be3dd4b6b01cbd0a2e771",
+          "sha256": "e6933e10f3bacd1e304b1157db021766b38692a7d2f899b34abb73d9c656589c",
+          "sha1": "8ad1b74db20fbd7149c030cda537d8ef13178d76",
+          "md5": "837b4ce3790836e1f933b6a4ecc64d21"
+        }
+      ]
+    }
+  ]
+}
