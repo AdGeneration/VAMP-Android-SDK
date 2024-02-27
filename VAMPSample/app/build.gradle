@@ -40,20 +40,14 @@ dependencies {
     implementation 'jp.supership.vamp:vamp-sdk:+'
     // AdMob
     implementation 'jp.supership.vamp:vamp-admob-adapter:+'
-    // FAN
-    implementation 'jp.supership.vamp:vamp-fan-adapter:+'
     // ironSource
     implementation 'jp.supership.vamp:vamp-ironsource-adapter:+'
     // LINEAds
     implementation 'jp.supership.vamp:vamp-lineads-adapter:+'
     // maio
     implementation 'jp.supership.vamp:vamp-maio-adapter:+'
-    // nend
-    implementation 'jp.supership.vamp:vamp-nend-adapter:+'
     // Pangle
     implementation 'jp.supership.vamp:vamp-pangle-adapter:+'
-    // Tapjoy
-    implementation 'jp.supership.vamp:vamp-tapjoy-adapter:+'
     // UnityAds
     implementation 'jp.supership.vamp:vamp-unityads-adapter:+'
 }

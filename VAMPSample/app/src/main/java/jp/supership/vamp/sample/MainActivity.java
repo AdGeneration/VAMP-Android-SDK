@@ -5,18 +5,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import jp.supership.vamp.VAMP;
-import jp.supership.vamp.VAMPGetLocationListener;
-import jp.supership.vamp.VAMPLocation;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,33 +32,15 @@ public class MainActivity extends AppCompatActivity {
 
         Button ad1Button = findViewById(R.id.button_vamp_ad1);
         ad1Button.setOnClickListener(
-                new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(MainActivity.this, VAMPAd1Activity.class));
-                    }
-                });
+                v -> startActivity(new Intent(MainActivity.this, VAMPAd1Activity.class)));
 
         Button ad2Button = findViewById(R.id.button_vamp_ad2);
         ad2Button.setOnClickListener(
-                new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(MainActivity.this, VAMPAd2Activity.class));
-                    }
-                });
+                v -> startActivity(new Intent(MainActivity.this, VAMPAd2Activity.class)));
 
         Button infoButton = findViewById(R.id.button_info);
         infoButton.setOnClickListener(
-                new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(MainActivity.this, InfoActivity.class));
-                    }
-                });
+                v -> startActivity(new Intent(MainActivity.this, InfoActivity.class)));
 
         // APP & VAMP SDK version
         StringBuilder builder = new StringBuilder();
@@ -84,55 +62,41 @@ public class MainActivity extends AppCompatActivity {
         EditText textAd1 = findViewById(R.id.text_ad1);
         textAd1.setText(VAMPAd1Activity.VAMP_AD_ID);
         textAd1.addTextChangedListener(
-                new EditTextWatcher(
-                        text -> {
-                            VAMPAd1Activity.VAMP_AD_ID = text;
-                        }));
+                new EditTextWatcher(text -> VAMPAd1Activity.VAMP_AD_ID = text));
 
         EditText textAd2 = findViewById(R.id.text_ad2);
         textAd2.setText(VAMPAd2Activity.VAMP_AD_ID);
         textAd2.addTextChangedListener(
-                new EditTextWatcher(
-                        text -> {
-                            VAMPAd2Activity.VAMP_AD_ID = text;
-                        }));
+                new EditTextWatcher(text -> VAMPAd2Activity.VAMP_AD_ID = text));
 
         CheckBox testModeCheckBox = findViewById(R.id.checkbox_test_mode);
         testModeCheckBox.setChecked(VAMP.isTestMode());
         testModeCheckBox.setOnCheckedChangeListener(
-                (buttonView, isChecked) -> {
-                    VAMP.setTestMode(isChecked);
-                });
+                (buttonView, isChecked) -> VAMP.setTestMode(isChecked));
 
         CheckBox debugModeCheckBox = findViewById(R.id.checkbox_debug_mode);
         debugModeCheckBox.setChecked(VAMP.isDebugMode());
         debugModeCheckBox.setOnCheckedChangeListener(
-                (buttonView, isChecked) -> {
-                    VAMP.setDebugMode(isChecked);
-                });
+                (buttonView, isChecked) -> VAMP.setDebugMode(isChecked));
 
         // 2桁の国コードを取得して、広告枠IDを切り替える
         VAMP.getLocation(
-                new VAMPGetLocationListener() {
+                location -> {
+                    StringBuilder sb = new StringBuilder(version);
+                    sb.append(" / ");
+                    sb.append(location.getCountryCode());
 
-                    @Override
-                    public void onLocation(@NonNull VAMPLocation location) {
-                        StringBuilder sb = new StringBuilder(version);
-                        sb.append(" / ");
-                        sb.append(location.getCountryCode());
-
-                        if (!TextUtils.isEmpty(location.getRegion())) {
-                            sb.append("-" + location.getRegion());
-                        }
-
-                        sdkVerTextView.setText(sb.toString());
-
-                        //                if (location.getCountryCode().equals("US")) {
-                        //                    // COPPA対象ユーザである場合はtrueを設定する
-                        //
-                        // VAMPPrivacySettings.setChildDirected(VAMPPrivacySettings.ChildDirected.TRUE);
-                        //                }
+                    if (!TextUtils.isEmpty(location.getRegion())) {
+                        sb.append("-").append(location.getRegion());
                     }
+
+                    sdkVerTextView.setText(sb.toString());
+
+                    //                if (location.getCountryCode().equals("US")) {
+                    //                    // COPPA対象ユーザである場合はtrueを設定する
+                    //
+                    // VAMPPrivacySettings.setChildDirected(VAMPPrivacySettings.ChildDirected.TRUE);
+                    //                }
                 });
 
         //        VAMP.isEUAccess(this, new VAMPPrivacySettings.UserConsentListener() {

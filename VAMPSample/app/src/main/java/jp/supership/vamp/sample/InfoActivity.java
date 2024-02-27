@@ -59,22 +59,16 @@ public class InfoActivity extends AppCompatActivity {
         addKeyValue(info, "SDK_Ver(VAMP)", VAMP.SDKVersion());
 
         addKeyValue(info, "SDK_Ver(Admob)", getAdnwVersion("AdMob"));
-        addKeyValue(info, "SDK_Ver(FAN)", getAdnwVersion("FAN"));
         addKeyValue(info, "SDK_Ver(ironSource)", getAdnwVersion("IronSource"));
         addKeyValue(info, "SDK_Ver(maio)", getAdnwVersion("Maio"));
-        addKeyValue(info, "SDK_Ver(nend)", getAdnwVersion("Nend"));
-        addKeyValue(info, "SDK_Ver(Tapjoy)", getAdnwVersion("Tapjoy"));
         addKeyValue(info, "SDK_Ver(UnityAds)", getAdnwVersion("UnityAds"));
         addKeyValue(info, "SDK_Ver(LINEAds)", getAdnwVersion("LINEAds"));
         addKeyValue(info, "SDK_Ver(Pangle)", getAdnwVersion("Pangle"));
         addValue(info, "--------------------");
 
         addKeyValue(info, "Adapter_Ver(Admob)", getAdapterVersion("AdMob"));
-        addKeyValue(info, "Adapter_Ver(FAN)", getAdapterVersion("FAN"));
         addKeyValue(info, "Adapter_Ver(ironSource)", getAdapterVersion("IronSource"));
         addKeyValue(info, "Adapter_Ver(maio)", getAdapterVersion("Maio"));
-        addKeyValue(info, "Adapter_Ver(nend)", getAdapterVersion("Nend"));
-        addKeyValue(info, "Adapter_Ver(Tapjoy)", getAdapterVersion("Tapjoy"));
         addKeyValue(info, "Adapter_Ver(UnityAds)", getAdapterVersion("UnityAds"));
         addKeyValue(info, "Adapter_Ver(LINEAds)", getAdapterVersion("LINEAds"));
         addKeyValue(info, "Adapter_Ver(Pangle)", getAdapterVersion("Pangle"));
@@ -120,14 +114,6 @@ public class InfoActivity extends AppCompatActivity {
 
         // 設定値
         addKeyValue(info, "ChildDirected", VAMPPrivacySettings.getChildDirected().name());
-        addKeyValue(
-                info,
-                "useMetaAudienceNetworkBidding",
-                String.valueOf(VAMP.useMetaAudienceNetworkBidding()));
-        addKeyValue(
-                info,
-                "isMetaAudienceNetworkBiddingTestMode",
-                String.valueOf(VAMP.isMetaAudienceNetworkBiddingTestMode()));
 
         mInfoTextView.setText(info.toString());
     }

@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,7 +34,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setSubtitle(
+                    String.format("[Test:%s] [Debug:%s]", VAMP.isTestMode(), VAMP.isDebugMode()));
+        }
 
         // メディアプレイヤー初期化
         initSound();
@@ -42,9 +47,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             clearLog(); // ログ消去
         }
         onCreateLayout(savedInstanceState);
-
-        actionBar.setSubtitle(
-                String.format("[Test:%s] [Debug:%s]", VAMP.isTestMode(), VAMP.isDebugMode()));
     }
 
     protected abstract void onCreateLayout(Bundle savedInstanceState);
@@ -65,13 +67,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("isPlay", isPlay);
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         isPlay = savedInstanceState.getBoolean("isPlay");
         loadLog();
@@ -110,9 +112,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    // region ActionBar Menu
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_sound, menu);
         MenuItem menu_sound = menu.findItem(R.id.menu_sound);
@@ -129,7 +130,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int menu_id = item.getItemId();
         if (menu_id == android.R.id.home) {
             finish();
@@ -146,48 +147,27 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    // endregion
 
-    // region log
-
-    /**
-     * ログ追加
-     *
-     * @param message
-     * @param color
-     */
     protected void addLog(String message, int color) {
         android.util.Log.d(TAG, message);
         String hex_color = String.format("%06x", color & 0x00ffffff);
-        StringBuilder builder = new StringBuilder();
-        builder.append(getDateString());
-        builder.append("<font color=#").append(hex_color).append(">");
-        builder.append(message);
-        builder.append("</font>");
+        String builder = getDateString() + "<font color=#" + hex_color + ">" + message + "</font>";
 
-        saveLog(builder.toString());
+        saveLog(builder);
     }
 
-    protected void addLog(String message, EventType event) {
+    protected void addLog(String message, @NonNull EventType event) {
         final int color = event.getColor();
         addLog(message, color);
     }
 
-    /**
-     * ログ追加
-     *
-     * @param message
-     */
     protected void addLog(String message) {
         android.util.Log.d(TAG, message);
-        StringBuilder builder = new StringBuilder();
-        builder.append(getDateString());
-        builder.append(message);
+        String builder = getDateString() + message;
 
-        saveLog(builder.toString());
+        saveLog(builder);
     }
 
-    /** ログ消去 */
     private void clearLog() {
         SharedPreferences sp = getSharedPreferences("log", MODE_PRIVATE);
         if (sp != null) {
@@ -199,7 +179,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         updateLog("");
     }
 
-    /** ログ読み込み */
     private void loadLog() {
         String log = "";
         SharedPreferences sp = getSharedPreferences("log", MODE_PRIVATE);
@@ -210,11 +189,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         updateLog(log);
     }
 
-    /**
-     * ログ保存
-     *
-     * @param message
-     */
     private void saveLog(String message) {
         StringBuilder builder = new StringBuilder(message);
         String log = "";
@@ -222,7 +196,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (sp != null) {
             log = sp.getString("reward_log", "");
 
-            if (log != null && log.length() > 0) {
+            if (log.length() > 0) {
                 builder.append("<br>");
                 builder.append(log);
             }
@@ -235,30 +209,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         updateLog(builder.toString());
     }
 
-    /**
-     * 日時文字列取得
-     *
-     * @return
-     */
     private String getDateString() {
         return (String) DateFormat.format("MM/dd kk:mm:ss ", Calendar.getInstance());
     }
 
-    /**
-     * ログ表示更新
-     *
-     * @param message
-     */
     private void updateLog(final String message) {
         if (mLogView != null) {
             mLogView.setText(Html.fromHtml(message));
         }
     }
-    // endregion
 
-    // region Sound MediaPlayer
-
-    /** メディアプレイヤー初期化 */
     private void initSound() {
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.invisible);
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -272,18 +232,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    /** メディアプレイヤー再生 */
     private void startSound() {
         if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
             mediaPlayer.start();
         }
     }
 
-    /** メディアプレイヤー一時停止 */
     private void pauseSound() {
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
         }
     }
-    // endregion
 }

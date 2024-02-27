@@ -21,13 +21,6 @@ allprojects {
             url "https://jitpack.io"
         }
         maven {
-            name "Tapjoy's maven repo"
-            url "https://sdk.tapjoy.com/"
-        }
-        maven {
-            url 'https://fan-adn.github.io/nendSDK-Android-lib/library'
-        }
-        maven {
             url "https://imobile-maio.github.io/maven"
         }
         maven {
