@@ -1,0 +1,74 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-lineads-adapter",
+    "version": "2.7.20240515.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-lineads-adapter-2.7.20240515.0.aar",
+          "url": "vamp-lineads-adapter-2.7.20240515.0.aar",
+          "size": 25259,
+          "sha512": "f5fbad2092998a9e76724e88b70a4630c41407e7f895798b67577de407747f666a15fbb2ac44c420d65efb7614dc7b27eac2807cd7820fe104d7a1274c3404d5",
+          "sha256": "709633f49b66f360b4ebe3fa0d7fd43f002ec2457a52d26cbe1e087d59267061",
+          "sha1": "8e3404489ae232911bda2a200470528eeae63d0d",
+          "md5": "4c31bdf2299b4e7710387dc2caf485ea"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.linecorp.adsnetwork",
+          "module": "fivead",
+          "version": {
+            "requires": "2.7.20240515"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-lineads-adapter-2.7.20240515.0.aar",
+          "url": "vamp-lineads-adapter-2.7.20240515.0.aar",
+          "size": 25259,
+          "sha512": "f5fbad2092998a9e76724e88b70a4630c41407e7f895798b67577de407747f666a15fbb2ac44c420d65efb7614dc7b27eac2807cd7820fe104d7a1274c3404d5",
+          "sha256": "709633f49b66f360b4ebe3fa0d7fd43f002ec2457a52d26cbe1e087d59267061",
+          "sha1": "8e3404489ae232911bda2a200470528eeae63d0d",
+          "md5": "4c31bdf2299b4e7710387dc2caf485ea"
+        }
+      ]
+    }
+  ]
+}
