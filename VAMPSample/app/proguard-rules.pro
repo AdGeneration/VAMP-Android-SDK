@@ -26,6 +26,10 @@
 -keep class com.google.android.gms.** { *; }
 -dontwarn com.google.android.gms.**
 
+#AppLovin
+
+-keep class com.applovin.** { *; }
+
 #maio
 
 -keep class jp.maio.sdk.android.** { *; }

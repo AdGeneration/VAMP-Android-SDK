@@ -64,6 +64,7 @@ public class InfoActivity extends AppCompatActivity {
         addKeyValue(info, "SDK_Ver(UnityAds)", getAdnwVersion("UnityAds"));
         addKeyValue(info, "SDK_Ver(LINEAds)", getAdnwVersion("LINEAds"));
         addKeyValue(info, "SDK_Ver(Pangle)", getAdnwVersion("Pangle"));
+        addKeyValue(info, "SDK_Ver(AppLovin)", getAdnwVersion("AppLovin"));
         addValue(info, "--------------------");
 
         addKeyValue(info, "Adapter_Ver(Admob)", getAdapterVersion("AdMob"));
@@ -72,6 +73,7 @@ public class InfoActivity extends AppCompatActivity {
         addKeyValue(info, "Adapter_Ver(UnityAds)", getAdapterVersion("UnityAds"));
         addKeyValue(info, "Adapter_Ver(LINEAds)", getAdapterVersion("LINEAds"));
         addKeyValue(info, "Adapter_Ver(Pangle)", getAdapterVersion("Pangle"));
+        addKeyValue(info, "Adapter_Ver(AppLovin)", getAdapterVersion("AppLovin"));
         addValue(info, "--------------------");
 
         // PackageManager
