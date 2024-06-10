@@ -1,0 +1,74 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "applovin-vamp-custom-adapter",
+    "version": "5.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "applovin-vamp-custom-adapter-5.2.0.aar",
+          "url": "applovin-vamp-custom-adapter-5.2.0.aar",
+          "size": 8562,
+          "sha512": "4c9eb9a520c7c080a09afc41fde42a46801573278c17149b74759633b6e3d0a87f0e46d9477ee660d863af3a368c934bf9a336912449361270d4b19f90347ec8",
+          "sha256": "2d8e997870748e76ad245c595e8acdc35afae4edc66b467b0e19fb988004318a",
+          "sha1": "8100c239f872f05b8d7ce14a57e1f88fb7375a35",
+          "md5": "8737cfd82f84305441a1fa23fa0b8a28"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.applovin",
+          "module": "applovin-sdk",
+          "version": {
+            "requires": "+"
+          }
+        },
+        {
+          "group": "jp.supership.vamp",
+          "module": "vamp-sdk",
+          "version": {
+            "requires": "5.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "applovin-vamp-custom-adapter-5.2.0.aar",
+          "url": "applovin-vamp-custom-adapter-5.2.0.aar",
+          "size": 8562,
+          "sha512": "4c9eb9a520c7c080a09afc41fde42a46801573278c17149b74759633b6e3d0a87f0e46d9477ee660d863af3a368c934bf9a336912449361270d4b19f90347ec8",
+          "sha256": "2d8e997870748e76ad245c595e8acdc35afae4edc66b467b0e19fb988004318a",
+          "sha1": "8100c239f872f05b8d7ce14a57e1f88fb7375a35",
+          "md5": "8737cfd82f84305441a1fa23fa0b8a28"
+        }
+      ]
+    }
+  ]
+}
