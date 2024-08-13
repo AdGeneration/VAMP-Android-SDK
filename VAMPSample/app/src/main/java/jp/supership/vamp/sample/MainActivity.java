@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import jp.supership.vamp.VAMP;
+import jp.supership.vamp.VAMPDebugUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -131,5 +132,7 @@ public class MainActivity extends AppCompatActivity {
         //                    .show();
         //            }
         //        });
+
+        VAMPDebugUtils.logSDKDetails(this);
     }
 }
