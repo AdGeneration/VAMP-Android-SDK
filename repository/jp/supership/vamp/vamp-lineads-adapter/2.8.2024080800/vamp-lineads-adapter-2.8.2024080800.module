@@ -1,0 +1,74 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-lineads-adapter",
+    "version": "2.8.2024080800",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-lineads-adapter-2.8.2024080800.aar",
+          "url": "vamp-lineads-adapter-2.8.2024080800.aar",
+          "size": 26105,
+          "sha512": "a39871892d2f75345df827e1b8f42a4e8bebfb795aff75d50cd9baebea3d6bb57bd42ef6c0bf6ff9a1e90f5ded2f69f3b004d4a873edbd0f658bad0a7393f159",
+          "sha256": "6c9b575bdb00dfc88a23bd1891998bb365183f6f6b02658424fab73e7e32a45b",
+          "sha1": "e8fe0295683e286a2479083195ff8bfbab3cd13c",
+          "md5": "f62abe96d7a3901ad3ff8d8267e70020"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.linecorp.adsnetwork",
+          "module": "fivead",
+          "version": {
+            "requires": "2.8.20240808"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-lineads-adapter-2.8.2024080800.aar",
+          "url": "vamp-lineads-adapter-2.8.2024080800.aar",
+          "size": 26105,
+          "sha512": "a39871892d2f75345df827e1b8f42a4e8bebfb795aff75d50cd9baebea3d6bb57bd42ef6c0bf6ff9a1e90f5ded2f69f3b004d4a873edbd0f658bad0a7393f159",
+          "sha256": "6c9b575bdb00dfc88a23bd1891998bb365183f6f6b02658424fab73e7e32a45b",
+          "sha1": "e8fe0295683e286a2479083195ff8bfbab3cd13c",
+          "md5": "f62abe96d7a3901ad3ff8d8267e70020"
+        }
+      ]
+    }
+  ]
+}
