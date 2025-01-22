@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion '29.0.3'
+    compileSdk 34
+    buildToolsVersion = '29.0.3'
     defaultConfig {
         applicationId "jp.supership.vamp.sample"
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -37,7 +37,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-base:17.6.0'
     implementation 'com.google.android.gms:play-services-ads-identifier:17.6.0'
     // VAMP
-    implementation 'jp.supership.vamp:vamp-sdk:+'
+    implementation 'jp.supership.vamp:vamp-sdk:5.3.0'
     // AdMob
     implementation 'jp.supership.vamp:vamp-admob-adapter:+'
     // AppLovin
