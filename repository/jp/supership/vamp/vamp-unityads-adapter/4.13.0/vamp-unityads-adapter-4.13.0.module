@@ -1,0 +1,74 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-unityads-adapter",
+    "version": "4.13.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-unityads-adapter-4.13.0.aar",
+          "url": "vamp-unityads-adapter-4.13.0.aar",
+          "size": 20333,
+          "sha512": "ddaa69a959d50b93ea2def1733f4f2bdc94744de8e4daddcad0e07c152d1fa58176d719dcb7b24c838b413072a3fdbce4f7d444d578aab0b73b09e661b86d307",
+          "sha256": "c28ccb4b7e754852dcdf2508122b959084ccca0e08031cac1fb798c120cd00f2",
+          "sha1": "5960e735611e5727d1ec0ea64d0c0dbd735a06c4",
+          "md5": "5eca008b25621174d52715df5ae5c3d8"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.unity3d.ads",
+          "module": "unity-ads",
+          "version": {
+            "requires": "4.13.0"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-unityads-adapter-4.13.0.aar",
+          "url": "vamp-unityads-adapter-4.13.0.aar",
+          "size": 20333,
+          "sha512": "ddaa69a959d50b93ea2def1733f4f2bdc94744de8e4daddcad0e07c152d1fa58176d719dcb7b24c838b413072a3fdbce4f7d444d578aab0b73b09e661b86d307",
+          "sha256": "c28ccb4b7e754852dcdf2508122b959084ccca0e08031cac1fb798c120cd00f2",
+          "sha1": "5960e735611e5727d1ec0ea64d0c0dbd735a06c4",
+          "md5": "5eca008b25621174d52715df5ae5c3d8"
+        }
+      ]
+    }
+  ]
+}
