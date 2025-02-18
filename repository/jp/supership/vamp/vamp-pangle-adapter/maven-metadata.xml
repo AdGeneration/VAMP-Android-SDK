@@ -3,8 +3,8 @@
   <groupId>jp.supership.vamp</groupId>
   <artifactId>vamp-pangle-adapter</artifactId>
   <versioning>
-    <latest>6.3.400</latest>
-    <release>6.3.400</release>
+    <latest>6.5.300</latest>
+    <release>6.5.300</release>
     <versions>
       <version>3.4.1.1.0</version>
       <version>3.5.1.1.0</version>
@@ -45,7 +45,8 @@
       <version>6.1.500</version>
       <version>6.2.700</version>
       <version>6.3.400</version>
+      <version>6.5.300</version>
     </versions>
-    <lastUpdated>20241114091851</lastUpdated>
+    <lastUpdated>20250218015339</lastUpdated>
   </versioning>
 </metadata>
