@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 34
+    namespace "jp.supership.vamp.sample"
+    compileSdk 35
     buildToolsVersion = '29.0.3'
     defaultConfig {
         applicationId "jp.supership.vamp.sample"
-        minSdkVersion 21
-        targetSdkVersion 34
+        minSdkVersion 23
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
