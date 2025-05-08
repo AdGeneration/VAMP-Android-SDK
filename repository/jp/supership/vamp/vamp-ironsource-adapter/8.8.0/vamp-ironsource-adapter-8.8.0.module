@@ -1,0 +1,101 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-ironsource-adapter",
+    "version": "8.8.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-ironsource-adapter-8.8.0.aar",
+          "url": "vamp-ironsource-adapter-8.8.0.aar",
+          "size": 16567,
+          "sha512": "7b0c0ec8a3c2d032361eb821a55fca5684fcdf630150ea582135daf9bdd2b7d68ca82a8e92f315878f4d4b16e2577f3296e6bcdc56527e0228545b7a9a2c4a54",
+          "sha256": "0164ff799aa47e3c7d0a0335f03959210977f21f59b943a3da2bd99c5697c02c",
+          "sha1": "60c8778e78f371e0a0673708347b70b8e0cd3962",
+          "md5": "d3d8b883ca2c1da204890f7b31466f7b"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.5.0"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.6.1"
+          }
+        },
+        {
+          "group": "com.unity3d.ads-mediation",
+          "module": "mediation-sdk",
+          "version": {
+            "requires": "8.8.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-ironsource-adapter-8.8.0.aar",
+          "url": "vamp-ironsource-adapter-8.8.0.aar",
+          "size": 16567,
+          "sha512": "7b0c0ec8a3c2d032361eb821a55fca5684fcdf630150ea582135daf9bdd2b7d68ca82a8e92f315878f4d4b16e2577f3296e6bcdc56527e0228545b7a9a2c4a54",
+          "sha256": "0164ff799aa47e3c7d0a0335f03959210977f21f59b943a3da2bd99c5697c02c",
+          "sha1": "60c8778e78f371e0a0673708347b70b8e0cd3962",
+          "md5": "d3d8b883ca2c1da204890f7b31466f7b"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "vamp-ironsource-adapter-8.8.0-sources.jar",
+          "url": "vamp-ironsource-adapter-8.8.0-sources.jar",
+          "size": 10191,
+          "sha512": "1e1243efaa1cf654c91843c9a8aee24d0ad3d7b8338450d4e9d7092f7a1071dba6fe7dd3ef052e0175548faba4853aeba1ea6306224facb66ba0c47fabb30392",
+          "sha256": "20a5a91c407cbbce5a3f12c721cfecc3a06c4e4485063bb48358a03b896cc7a0",
+          "sha1": "9947b54d46f18a09fbc73b3fcc1de4133d4e6b71",
+          "md5": "ea44d34ab6586dea5af83f375afbf1b7"
+        }
+      ]
+    }
+  ]
+}
