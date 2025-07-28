@@ -1,0 +1,94 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-unityads-adapter",
+    "version": "4.16.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-unityads-adapter-4.16.0.aar",
+          "url": "vamp-unityads-adapter-4.16.0.aar",
+          "size": 17195,
+          "sha512": "9dbb969113918d9f44bd5284cc357946125ff909f3644ac5a7af6f4596ba03491c3b187603f045885d3d3f41bc97f059b8d2351e555a822d7c279cc59eb192d7",
+          "sha256": "0427ea471256d07d3d8d50b120a0fda77d8cb45c5a433b5233ac2aeba1c58cb0",
+          "sha1": "aea98221505e14c1961c27d9169b87759f83ecf0",
+          "md5": "42d22aba038e2f375c6717cbef890195"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.unity3d.ads",
+          "module": "unity-ads",
+          "version": {
+            "requires": "4.16.0"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-unityads-adapter-4.16.0.aar",
+          "url": "vamp-unityads-adapter-4.16.0.aar",
+          "size": 17195,
+          "sha512": "9dbb969113918d9f44bd5284cc357946125ff909f3644ac5a7af6f4596ba03491c3b187603f045885d3d3f41bc97f059b8d2351e555a822d7c279cc59eb192d7",
+          "sha256": "0427ea471256d07d3d8d50b120a0fda77d8cb45c5a433b5233ac2aeba1c58cb0",
+          "sha1": "aea98221505e14c1961c27d9169b87759f83ecf0",
+          "md5": "42d22aba038e2f375c6717cbef890195"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "vamp-unityads-adapter-4.16.0-sources.jar",
+          "url": "vamp-unityads-adapter-4.16.0-sources.jar",
+          "size": 8239,
+          "sha512": "9b68d2924cffb1d8ad0005441104d8ce5759515641bf16d3911e69f2edb946a6fb226fb7b1134c6421cbb0204c252398714ce72e446fc0cbcfa3a0e2d27c9b0b",
+          "sha256": "20150b6e67c16be66669d719fad98e7a7f30c5bed40abbb973e8f7c1920eafb6",
+          "sha1": "1110e4ba525477b6c320799f07951fad169b5b0e",
+          "md5": "154e65b6041cdf6d623882a0f3b105c9"
+        }
+      ]
+    }
+  ]
+}
