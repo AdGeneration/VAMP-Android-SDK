@@ -1,0 +1,94 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-admob-adapter",
+    "version": "24.6.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-admob-adapter-24.6.0.aar",
+          "url": "vamp-admob-adapter-24.6.0.aar",
+          "size": 13884,
+          "sha512": "3920725ec16643cba09b536b83e6398adf617addd3caf82937e5e7d1a9dbd93c0133d84d94459c1ee8e359c6880222b620017669f41311fc397f08a1bb811d3e",
+          "sha256": "ae8bb5d68b08f0213fddfb55c4cf22f1d0e78bf1cb6098f2e07f5375c5369332",
+          "sha1": "cacaf68371462b1028c3561edf9bc50c9bfef293",
+          "md5": "1e540a67830c244dcef2873aa66aa1cc"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "24.6.0"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-admob-adapter-24.6.0.aar",
+          "url": "vamp-admob-adapter-24.6.0.aar",
+          "size": 13884,
+          "sha512": "3920725ec16643cba09b536b83e6398adf617addd3caf82937e5e7d1a9dbd93c0133d84d94459c1ee8e359c6880222b620017669f41311fc397f08a1bb811d3e",
+          "sha256": "ae8bb5d68b08f0213fddfb55c4cf22f1d0e78bf1cb6098f2e07f5375c5369332",
+          "sha1": "cacaf68371462b1028c3561edf9bc50c9bfef293",
+          "md5": "1e540a67830c244dcef2873aa66aa1cc"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "vamp-admob-adapter-24.6.0-sources.jar",
+          "url": "vamp-admob-adapter-24.6.0-sources.jar",
+          "size": 6339,
+          "sha512": "f6ed4cd86730fe9eddacb016c289be16951e06ad5434ef460036780b01f8a89f81e1bbce1bcc150ccf4d3cdd7d69e671bb027daa49e2725fbc48660aef8cb0de",
+          "sha256": "723e6038e25f4c844a6aec321bd797090cbe47068fc8c86754f2b1782b1d65ac",
+          "sha1": "72029d3931bb98323532340c3e679fe5fa57d0f0",
+          "md5": "d0e266b25c50e314acfc6d24f2a0dfd3"
+        }
+      ]
+    }
+  ]
+}
