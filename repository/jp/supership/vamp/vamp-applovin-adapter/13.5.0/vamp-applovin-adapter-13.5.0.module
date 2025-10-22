@@ -1,0 +1,94 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-applovin-adapter",
+    "version": "13.5.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-applovin-adapter-13.5.0.aar",
+          "url": "vamp-applovin-adapter-13.5.0.aar",
+          "size": 12214,
+          "sha512": "a110e1c51f15c2bf87ad20dab727d4dc64bcdeabb5ef5f508aeb25ff2a3e8c6e50e2eb6b30e3379e1cbe161f158553f142202bfa3aafc1e8564778046cd9380e",
+          "sha256": "caa4797d4510db27882baaf540bb24cf9c245fdc3a2a535b89ff06310d5fa8c0",
+          "sha1": "1394db67dc09b3921ee2686fa5b5ae5fad4f915f",
+          "md5": "1ffe18986209a5860795b32aedd4f982"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.applovin",
+          "module": "applovin-sdk",
+          "version": {
+            "requires": "13.5.0"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-applovin-adapter-13.5.0.aar",
+          "url": "vamp-applovin-adapter-13.5.0.aar",
+          "size": 12214,
+          "sha512": "a110e1c51f15c2bf87ad20dab727d4dc64bcdeabb5ef5f508aeb25ff2a3e8c6e50e2eb6b30e3379e1cbe161f158553f142202bfa3aafc1e8564778046cd9380e",
+          "sha256": "caa4797d4510db27882baaf540bb24cf9c245fdc3a2a535b89ff06310d5fa8c0",
+          "sha1": "1394db67dc09b3921ee2686fa5b5ae5fad4f915f",
+          "md5": "1ffe18986209a5860795b32aedd4f982"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "vamp-applovin-adapter-13.5.0-sources.jar",
+          "url": "vamp-applovin-adapter-13.5.0-sources.jar",
+          "size": 5334,
+          "sha512": "4e8f32129b9d1333e1c906c7589a567a3e93cd067433153f2d8e852ceb51a3dc0b0c239bdd11971964f9774b53e27ef8121f72ea4b94f71bc9c7b76c7651e3ee",
+          "sha256": "353f24fbc646da1074995a61c9b19f69b64a9ffc38b6fcb13000ba1903e875be",
+          "sha1": "2c121140a800146936ac6837d36a556767b20d62",
+          "md5": "f5316ca0ad014d78eb65698a3326e095"
+        }
+      ]
+    }
+  ]
+}
