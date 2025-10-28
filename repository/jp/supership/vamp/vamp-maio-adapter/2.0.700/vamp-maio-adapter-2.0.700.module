@@ -1,0 +1,123 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-maio-adapter",
+    "version": "2.0.700",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.9.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-maio-adapter-2.0.700.aar",
+          "url": "vamp-maio-adapter-2.0.700.aar",
+          "size": 10010,
+          "sha512": "8fb56ef2ba08ec00b7d4404667726501b8f00aebd271abf52abe7e0d5b20b6584fa883af3b1b39ba7ec2903b7d391f4001bc3d99d4deac55172b4590c66a23a1",
+          "sha256": "3c67c7c76fd4f3bab60d9ca9ced91473f38168e576a42dfbe8965cc2195b2df9",
+          "sha1": "7b8af53ae9762888db081498695deb7b58f72ea0",
+          "md5": "a93ca343327e27a42d34e58bebae8aed"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.maio",
+          "module": "android-sdk-v2",
+          "version": {
+            "requires": "2.0.7"
+          },
+          "excludes": [
+            {
+              "group": "*",
+              "module": "*"
+            }
+          ],
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "android-sdk-v2",
+              "type": "aar",
+              "extension": "aar"
+            }
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.9.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-maio-adapter-2.0.700.aar",
+          "url": "vamp-maio-adapter-2.0.700.aar",
+          "size": 10010,
+          "sha512": "8fb56ef2ba08ec00b7d4404667726501b8f00aebd271abf52abe7e0d5b20b6584fa883af3b1b39ba7ec2903b7d391f4001bc3d99d4deac55172b4590c66a23a1",
+          "sha256": "3c67c7c76fd4f3bab60d9ca9ced91473f38168e576a42dfbe8965cc2195b2df9",
+          "sha1": "7b8af53ae9762888db081498695deb7b58f72ea0",
+          "md5": "a93ca343327e27a42d34e58bebae8aed"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "vamp-maio-adapter-2.0.700-sources.jar",
+          "url": "vamp-maio-adapter-2.0.700-sources.jar",
+          "size": 6256,
+          "sha512": "618ea6fc7ad6b17dc6c525cd83c6cc17e434b4e83416ac69597041cd60c52a0f7f45fecedc763dd225afe7468b9118af560bbf9959244636e55143296d88633d",
+          "sha256": "6027aa2ad70d86a785e5c9cf6351802edb8291b2a6251a0362e7017c6a6d8328",
+          "sha1": "577322fb78f77dd89242506f8d38177d1d59293a",
+          "md5": "463cf9349c270194746d2daf8beef062"
+        }
+      ]
+    }
+  ]
+}
