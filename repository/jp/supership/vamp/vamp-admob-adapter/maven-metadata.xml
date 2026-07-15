@@ -3,8 +3,8 @@
   <groupId>jp.supership.vamp</groupId>
   <artifactId>vamp-admob-adapter</artifactId>
   <versioning>
-    <latest>25.2.0</latest>
-    <release>25.2.0</release>
+    <latest>25.4.0</latest>
+    <release>25.4.0</release>
     <versions>
       <version>1.0.0</version>
       <version>19.3.0.0</version>
@@ -33,7 +33,8 @@
       <version>24.6.0</version>
       <version>24.9.0</version>
       <version>25.2.0</version>
+      <version>25.4.0</version>
     </versions>
-    <lastUpdated>20260518033342</lastUpdated>
+    <lastUpdated>20260715014919</lastUpdated>
   </versioning>
 </metadata>
