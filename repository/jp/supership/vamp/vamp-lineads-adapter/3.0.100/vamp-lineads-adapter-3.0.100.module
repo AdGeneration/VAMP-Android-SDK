@@ -10,7 +10,7 @@
   },
   "createdBy": {
     "gradle": {
-      "version": "8.13"
+      "version": "8.10"
     }
   },
   "variants": [
@@ -26,11 +26,11 @@
         {
           "name": "vamp-lineads-adapter-3.0.100.aar",
           "url": "vamp-lineads-adapter-3.0.100.aar",
-          "size": 11944,
-          "sha512": "5e09136195428af88ddeb7bd6bd8187a309b22190a8b2936dbf3447f3537286976e395870b09475870fcf4f8c11b97f4ab3477b3d65d7a743179828c07e05115",
-          "sha256": "c6d5a3250fcef3d4dd019750133af4fd038b40532edb5a4c63e04052b3c0abc3",
-          "sha1": "cdac6b6ab2717c015dcbd544401af569333470e6",
-          "md5": "828fa2fb75329738c47204dd50743779"
+          "size": 11045,
+          "sha512": "ca2fefc342d2745667cec106d8e5f60684135bc5abcbc1190b0f5c8e22bb235fd0f29180116f15b7367216212c88e8cbf70dfee0ff4f2199edc9616a85aadb52",
+          "sha256": "05ee285818b93643950f2e025cddeb87f0704ca375002dda4fc57ff277675811",
+          "sha1": "a0d72009fb4d7565c2c564806c73ee875baf90eb",
+          "md5": "5d34dfe6e5a3e3e559f5280a9e8d69c6"
         }
       ]
     },
@@ -62,11 +62,11 @@
         {
           "name": "vamp-lineads-adapter-3.0.100.aar",
           "url": "vamp-lineads-adapter-3.0.100.aar",
-          "size": 11944,
-          "sha512": "5e09136195428af88ddeb7bd6bd8187a309b22190a8b2936dbf3447f3537286976e395870b09475870fcf4f8c11b97f4ab3477b3d65d7a743179828c07e05115",
-          "sha256": "c6d5a3250fcef3d4dd019750133af4fd038b40532edb5a4c63e04052b3c0abc3",
-          "sha1": "cdac6b6ab2717c015dcbd544401af569333470e6",
-          "md5": "828fa2fb75329738c47204dd50743779"
+          "size": 11045,
+          "sha512": "ca2fefc342d2745667cec106d8e5f60684135bc5abcbc1190b0f5c8e22bb235fd0f29180116f15b7367216212c88e8cbf70dfee0ff4f2199edc9616a85aadb52",
+          "sha256": "05ee285818b93643950f2e025cddeb87f0704ca375002dda4fc57ff277675811",
+          "sha1": "a0d72009fb4d7565c2c564806c73ee875baf90eb",
+          "md5": "5d34dfe6e5a3e3e559f5280a9e8d69c6"
         }
       ]
     },
