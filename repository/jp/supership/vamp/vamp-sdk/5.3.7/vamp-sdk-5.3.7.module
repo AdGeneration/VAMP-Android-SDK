@@ -1,0 +1,122 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-sdk",
+    "version": "5.3.7",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-sdk-5.3.7.aar",
+          "url": "vamp-sdk-5.3.7.aar",
+          "size": 1118517,
+          "sha512": "b9e6f0eb2a18b1fc70ca1d3e761c630399d76810adb4862f4e18286c7ef17899737651a776d0883594f57961867344671d42b14c69ef22efec5f204ad99ae395",
+          "sha256": "f9ee114e565f515899854c3fd59dba1a0fc97ebd63af2488396cb31da601b8b4",
+          "sha1": "1eaa3fa604518ef0cce102d8b0d6d1c1a503f3c2",
+          "md5": "289000503d799f702781aa9d0ba20532"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-base",
+          "version": {
+            "requires": "17.6.0"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads-identifier",
+          "version": {
+            "requires": "17.0.1"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.8.20"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-android",
+          "version": {
+            "requires": "1.7.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-sdk-5.3.7.aar",
+          "url": "vamp-sdk-5.3.7.aar",
+          "size": 1118517,
+          "sha512": "b9e6f0eb2a18b1fc70ca1d3e761c630399d76810adb4862f4e18286c7ef17899737651a776d0883594f57961867344671d42b14c69ef22efec5f204ad99ae395",
+          "sha256": "f9ee114e565f515899854c3fd59dba1a0fc97ebd63af2488396cb31da601b8b4",
+          "sha1": "1eaa3fa604518ef0cce102d8b0d6d1c1a503f3c2",
+          "md5": "289000503d799f702781aa9d0ba20532"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "vamp-sdk-5.3.7-sources.jar",
+          "url": "vamp-sdk-5.3.7-sources.jar",
+          "size": 214681,
+          "sha512": "56288361ab496c8651908344699d7addf9d94119e01f1db08d271febc394d476e24a525cfb4059445eb3512bfaac0b732f2125890bc2c0b96b5b6c3674dfebc5",
+          "sha256": "53dabe82c9428f0d4a77141eca74b93b44b6c8f521c91741b9355ffb00a00c02",
+          "sha1": "39a57c50a483fb90a94580ce8433fbc46bcd1af7",
+          "md5": "9e944912256310bafb4fe32209509103"
+        }
+      ]
+    }
+  ]
+}
