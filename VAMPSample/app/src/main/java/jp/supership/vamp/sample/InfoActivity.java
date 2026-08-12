@@ -59,7 +59,6 @@ public class InfoActivity extends AppCompatActivity {
         addKeyValue(info, "SDK_Ver(VAMP)", VAMP.SDKVersion());
 
         addKeyValue(info, "SDK_Ver(Admob)", getAdnwVersion("AdMob"));
-        addKeyValue(info, "SDK_Ver(ironSource)", getAdnwVersion("IronSource"));
         addKeyValue(info, "SDK_Ver(maio)", getAdnwVersion("Maio"));
         addKeyValue(info, "SDK_Ver(UnityAds)", getAdnwVersion("UnityAds"));
         addKeyValue(info, "SDK_Ver(LINEAds)", getAdnwVersion("LINEAds"));
@@ -68,7 +67,6 @@ public class InfoActivity extends AppCompatActivity {
         addValue(info, "--------------------");
 
         addKeyValue(info, "Adapter_Ver(Admob)", getAdapterVersion("AdMob"));
-        addKeyValue(info, "Adapter_Ver(ironSource)", getAdapterVersion("IronSource"));
         addKeyValue(info, "Adapter_Ver(maio)", getAdapterVersion("Maio"));
         addKeyValue(info, "Adapter_Ver(UnityAds)", getAdapterVersion("UnityAds"));
         addKeyValue(info, "Adapter_Ver(LINEAds)", getAdapterVersion("LINEAds"));

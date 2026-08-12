@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="jp.supership.vamp.sample">
 
+    <!-- AppLovin SDK 13.6.3 以降は minSdk 24 を要求するが、本サンプルは他アダプターの
+         Android 6 (API 23) 動作確認継続のため minSdk 23 を維持して override する。
+         API 23〜25 端末では AppLovin 経路はサポート外（isSupported() が API 26 以上のみ true） -->
+    <uses-sdk tools:overrideLibrary="com.applovin.sdk,jp.supership.vamp.mediation.applovin" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
