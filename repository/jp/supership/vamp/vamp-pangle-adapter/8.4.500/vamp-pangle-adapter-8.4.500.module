@@ -1,0 +1,108 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-pangle-adapter",
+    "version": "8.4.500",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-pangle-adapter-8.4.500.aar",
+          "url": "vamp-pangle-adapter-8.4.500.aar",
+          "size": 22363,
+          "sha512": "ede20a131b8578faf290d692c754cee66c337c0be35652e57db86fc7f1c9cfba6da27d4096fc425834bd54de091cfac5e02121286a216755f3b3c4febc467f71",
+          "sha256": "c64b64aec866420599300b2177dfa21398b658f415e54ceb401aedbad32b4349",
+          "sha1": "ccd940b8f6cdc675d06b9c041d608bc1e13568c7",
+          "md5": "ed9f1ff3035ad5f20f2f884cb426f52c"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.2.0"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "com.pangle.global",
+          "module": "pag-sdk",
+          "version": {
+            "requires": "8.4.0.5"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-pangle-adapter-8.4.500.aar",
+          "url": "vamp-pangle-adapter-8.4.500.aar",
+          "size": 22363,
+          "sha512": "ede20a131b8578faf290d692c754cee66c337c0be35652e57db86fc7f1c9cfba6da27d4096fc425834bd54de091cfac5e02121286a216755f3b3c4febc467f71",
+          "sha256": "c64b64aec866420599300b2177dfa21398b658f415e54ceb401aedbad32b4349",
+          "sha1": "ccd940b8f6cdc675d06b9c041d608bc1e13568c7",
+          "md5": "ed9f1ff3035ad5f20f2f884cb426f52c"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "vamp-pangle-adapter-8.4.500-sources.jar",
+          "url": "vamp-pangle-adapter-8.4.500-sources.jar",
+          "size": 15730,
+          "sha512": "4b383f8f01a848368783c0b58753c7f41f61a171ed974a7f7efdd561e8bbecba7cc9c66249366d3deb8f5bd40ede788fd0ef8b8edd84060b95a84fe4dc978c51",
+          "sha256": "16a2a2f17d9a6ad4d9aebec92ed7f602119c44be3cf48dc08e843ebb6a22bd7e",
+          "sha1": "9c08680b688f475e0a138755b0d36ff459cab7d5",
+          "md5": "ad8e26a578b9f121489f5d2213f1ffb5"
+        }
+      ]
+    }
+  ]
+}
