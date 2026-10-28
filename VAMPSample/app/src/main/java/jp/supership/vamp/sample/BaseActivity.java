@@ -45,6 +45,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             clearLog(); // ログ消去
         }
         onCreateLayout(savedInstanceState);
+        WindowInsetsHelper.applySystemBarInsets(this);
     }
 
     protected abstract void onCreateLayout(Bundle savedInstanceState);

@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- targetSdk 35 以上のアプリは Android 15 以降で edge-to-edge になり、ステータスバーが透明になって背後の明るい背景が見える。
+         アイコンが背景に埋もれないよう、ステータスバーのアイコンを暗色にする。 -->
+    <style name="AppTheme" parent="Base.AppTheme">
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+</resources>
