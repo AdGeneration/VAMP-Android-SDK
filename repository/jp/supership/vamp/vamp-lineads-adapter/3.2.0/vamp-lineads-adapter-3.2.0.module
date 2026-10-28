@@ -1,0 +1,94 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.supership.vamp",
+    "module": "vamp-lineads-adapter",
+    "version": "3.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "vamp-lineads-adapter-3.2.0.aar",
+          "url": "vamp-lineads-adapter-3.2.0.aar",
+          "size": 12366,
+          "sha512": "928d13582484f4b27e77716f2d24c637fb4c2ac09fd3fb2403fe9671dba527361dae029a04e8bfdf5d6bc2ed4ab52ec7f6f8d28cb231ae7003839df9835dd3b1",
+          "sha256": "fd639fad0aa3e4b3023f7b2d4825c2b67de209813cd32fa40cfe21a84630fed2",
+          "sha1": "0f9c2659fc38fada7f06a06dd7c0c284b70ddb75",
+          "md5": "bcd155788ca034b27e069ca21875e254"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.linecorp.adsnetwork",
+          "module": "fivead",
+          "version": {
+            "requires": "3.2.0"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "vamp-lineads-adapter-3.2.0.aar",
+          "url": "vamp-lineads-adapter-3.2.0.aar",
+          "size": 12366,
+          "sha512": "928d13582484f4b27e77716f2d24c637fb4c2ac09fd3fb2403fe9671dba527361dae029a04e8bfdf5d6bc2ed4ab52ec7f6f8d28cb231ae7003839df9835dd3b1",
+          "sha256": "fd639fad0aa3e4b3023f7b2d4825c2b67de209813cd32fa40cfe21a84630fed2",
+          "sha1": "0f9c2659fc38fada7f06a06dd7c0c284b70ddb75",
+          "md5": "bcd155788ca034b27e069ca21875e254"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "vamp-lineads-adapter-3.2.0-sources.jar",
+          "url": "vamp-lineads-adapter-3.2.0-sources.jar",
+          "size": 7592,
+          "sha512": "d58b8078720effecca832a32ac30c476110408d4f1a93fb6da795dc73ac9b692ecdc4432fe2e45947c6fd79f8d425c4d00b233bda962424f3a03b7c9e0119517",
+          "sha256": "0995de2198a79018e1f3f81c7f2d3f2dfd25ef6966d70099816ce580b520d569",
+          "sha1": "b8528a5f46b0ce2189fe3c925391f0dc560ee8b4",
+          "md5": "1b36689b2c708291c20ad23a37ecef52"
+        }
+      ]
+    }
+  ]
+}
